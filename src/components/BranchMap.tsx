@@ -44,12 +44,13 @@ export function BranchMap() {
         onBlur={() => setActiveCity(null)}
       >
         <KeralaBranches
-          className="mx-auto h-auto w-full max-w-[520px]"
+          className="mx-auto h-auto w-full max-w-[640px]"
           style={
             {
               '--map-fill': 'rgba(255,255,255,0.035)',
               '--map-stroke': 'rgba(255,255,255,0.22)',
               '--map-leader': 'rgba(255,255,255,0.16)',
+              '--map-district': 'rgba(255,255,255,0.05)',
               '--map-dot': '#FFB020',
               '--map-label': '#F3F5FB',
               '--map-hq': '#FFB020',
