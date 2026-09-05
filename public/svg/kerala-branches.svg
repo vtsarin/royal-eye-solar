@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 780" width="100%" role="img" aria-labelledby="ket ked">
+  <title id="ket">Royal Eye Solar coverage across Kerala</title>
+  <desc id="ked">Stylised map of Kerala marking the Royal Eye Solar head office at Edamuttam in Thrissur and branches at Vadakara, Calicut, Kottayam, Pathanamthitta and Trivandrum.</desc>
+  <path class="landmass" d="M141.9,106.3 L132.0,129.8 L156.7,166.8 L169.0,203.8 L196.1,228.4 L218.3,253.1 L233.1,290.1 L243.0,302.4 L257.8,327.1 L273.8,351.8 L280.0,376.4 L286.2,401.1 L292.3,425.8 L302.2,450.4 L307.1,475.1 L314.5,499.8 L323.2,524.4 L331.8,549.1 L341.7,573.8 L354.0,598.4 L372.5,623.1 L391.0,647.8 L405.8,660.1 L415.7,673.7 L421.8,653.9 L428.0,629.3 L415.7,604.6 L409.5,579.9 L421.8,555.3 L415.7,530.6 L403.3,505.9 L409.5,481.3 L397.2,456.6 L384.8,431.9 L378.7,407.3 L391.0,382.6 L403.3,357.9 L421.8,339.4 L378.7,333.3 L360.2,320.9 L341.7,308.6 L347.8,283.9 L335.5,259.3 L304.7,253.1 L280.0,240.8 L261.5,222.3 L249.2,197.6 L236.8,172.9 L218.3,148.3 L193.7,129.8 L169.0,117.4 Z" fill="var(--map-fill,rgba(255,255,255,0.04))" stroke="var(--map-stroke,rgba(255,255,255,0.22))" stroke-width="1" stroke-linejoin="round"/>
+  <g class="branch" data-city="Vadakara" tabindex="0" role="button" aria-label="Vadakara branch">
+    <polyline class="leader" points="217.1,253.1 195.1,253.1 104,253.1" fill="none" stroke="var(--map-leader,rgba(255,255,255,0.20))" stroke-width="1"/>
+    <circle class="halo" cx="217.1" cy="253.1" r="11" fill="var(--map-dot,#FFB020)" opacity=".14"/>
+    <circle class="dot" cx="217.1" cy="253.1" r="4" fill="var(--map-dot,#FFB020)"/>
+
+    <text class="label" x="94" y="257.1" text-anchor="end" font-size="13" font-weight="500" fill="var(--map-label,#F3F5FB)">Vadakara</text>
+
+  </g>
+  <g class="branch" data-city="Calicut" tabindex="0" role="button" aria-label="Calicut branch">
+    <polyline class="leader" points="240.5,296.3 218.5,296.3 104,296.3" fill="none" stroke="var(--map-leader,rgba(255,255,255,0.20))" stroke-width="1"/>
+    <circle class="halo" cx="240.5" cy="296.3" r="11" fill="var(--map-dot,#FFB020)" opacity=".14"/>
+    <circle class="dot" cx="240.5" cy="296.3" r="4" fill="var(--map-dot,#FFB020)"/>
+
+    <text class="label" x="94" y="300.3" text-anchor="end" font-size="13" font-weight="500" fill="var(--map-label,#F3F5FB)">Calicut</text>
+
+  </g>
+  <g class="branch is-hq" data-city="Thrissur" tabindex="0" role="button" aria-label="Thrissur — head office">
+    <polyline class="leader" points="293.6,386.3 271.6,386.3 104,386.3" fill="none" stroke="var(--map-leader,rgba(255,255,255,0.20))" stroke-width="1"/>
+    <circle class="halo" cx="293.6" cy="386.3" r="15" fill="var(--map-dot,#FFB020)" opacity=".14"/>
+    <circle class="dot" cx="293.6" cy="386.3" r="6" fill="var(--map-dot,#FFB020)"/>
+    <circle cx="293.6" cy="386.3" r="10.5" fill="none" stroke="var(--map-dot,#FFB020)" stroke-width="1.25" opacity=".6"/>
+    <text class="label" x="94" y="390.3" text-anchor="end" font-size="13" font-weight="500" fill="var(--map-label,#F3F5FB)">Thrissur</text>
+    <text class="sub" x="94" y="406.3" text-anchor="end" font-size="10.5" letter-spacing=".12em" fill="var(--map-hq,#FFB020)">HEAD OFFICE</text>
+  </g>
+  <g class="branch" data-city="Kottayam" tabindex="0" role="button" aria-label="Kottayam branch">
+    <polyline class="leader" points="331.8,501.0 353.8,501.0 456,501.0" fill="none" stroke="var(--map-leader,rgba(255,255,255,0.20))" stroke-width="1"/>
+    <circle class="halo" cx="331.8" cy="501.0" r="11" fill="var(--map-dot,#FFB020)" opacity=".14"/>
+    <circle class="dot" cx="331.8" cy="501.0" r="4" fill="var(--map-dot,#FFB020)"/>
+
+    <text class="label" x="466" y="505.0" text-anchor="start" font-size="13" font-weight="500" fill="var(--map-label,#F3F5FB)">Kottayam</text>
+
+  </g>
+  <g class="branch" data-city="Pathanamthitta" tabindex="0" role="button" aria-label="Pathanamthitta branch">
+    <polyline class="leader" points="365.1,541.7 387.1,541.7 456,541.7" fill="none" stroke="var(--map-leader,rgba(255,255,255,0.20))" stroke-width="1"/>
+    <circle class="halo" cx="365.1" cy="541.7" r="11" fill="var(--map-dot,#FFB020)" opacity=".14"/>
+    <circle class="dot" cx="365.1" cy="541.7" r="4" fill="var(--map-dot,#FFB020)"/>
+
+    <text class="label" x="466" y="545.7" text-anchor="start" font-size="13" font-weight="500" fill="var(--map-label,#F3F5FB)">Pathanamthitta</text>
+
+  </g>
+  <g class="branch" data-city="Trivandrum" tabindex="0" role="button" aria-label="Trivandrum branch">
+    <polyline class="leader" points="383.6,633.0 405.6,633.0 456,633.0" fill="none" stroke="var(--map-leader,rgba(255,255,255,0.20))" stroke-width="1"/>
+    <circle class="halo" cx="383.6" cy="633.0" r="11" fill="var(--map-dot,#FFB020)" opacity=".14"/>
+    <circle class="dot" cx="383.6" cy="633.0" r="4" fill="var(--map-dot,#FFB020)"/>
+
+    <text class="label" x="466" y="637.0" text-anchor="start" font-size="13" font-weight="500" fill="var(--map-label,#F3F5FB)">Trivandrum</text>
+
+  </g>
+</svg>
