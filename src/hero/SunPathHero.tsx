@@ -156,7 +156,7 @@ export function SunPathHero() {
                 className="inline-block"
                 initial={{ y: '110%' }}
                 animate={{ y: '0%' }}
-                transition={{ duration: 0.8, delay: 0.12 + i * 0.04, ease: easeOut }}
+                transition={{ duration: 0.7, delay: 0.06 + i * 0.03, ease: easeOut }}
               >
                 {word}
                 {i < words.length - 1 ? ' ' : ''}
@@ -169,7 +169,7 @@ export function SunPathHero() {
           className="measure mt-8 text-body-lg text-fg-secondary"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.5, ease: easeOut }}
+          transition={{ duration: 0.5, delay: 0.12, ease: easeOut }}
         >
           {hero.sub}
         </motion.p>
@@ -178,7 +178,7 @@ export function SunPathHero() {
           className="mt-10 flex flex-wrap items-center gap-4"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.62, ease: easeOut }}
+          transition={{ duration: 0.5, delay: 0.22, ease: easeOut }}
         >
           <a href={hero.primary.href} className="btn-amber">
             <Phone strokeWidth={1.5} size={18} aria-hidden="true" />
