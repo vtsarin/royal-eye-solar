@@ -138,6 +138,8 @@ export interface Pillar {
   body: string;
   href: string;
   size: 'large' | 'small';
+  /** Product cutout. Decorative here — the card title already names the product. */
+  image: { src: string; width: number; height: number };
 }
 
 export const productPillars = {
@@ -150,6 +152,7 @@ export const productPillars = {
       body: 'Vikram, Adani, ReNew, Goldi and UTL. Topcon cells and bifacial construction, specified for Indian heat and Indian grid conditions.',
       href: '/products#panels',
       size: 'large',
+      image: { src: './images/panel-array-render.webp', width: 1200, height: 1183 },
     },
     {
       index: '02',
@@ -157,6 +160,7 @@ export const productPillars = {
       body: 'Solaire, INVT, Sofar, Deye and UTL. String, micro and hybrid — chosen against your shading, orientation and backup needs, not against a price list.',
       href: '/products#inverters',
       size: 'large',
+      image: { src: './images/inverter-wall-unit-800.webp', width: 800, height: 950 },
     },
     {
       index: '03',
@@ -164,6 +168,7 @@ export const productPillars = {
       body: 'REX, our own brand, in both lithium and lead-acid. Backed for 84 months.',
       href: '/products#batteries',
       size: 'small',
+      image: { src: './images/battery-lifepo4.webp', width: 780, height: 870 },
     },
     {
       index: '04',
@@ -171,6 +176,7 @@ export const productPillars = {
       body: 'Every cable, clamp, connector and enclosure a compliant install needs. Twenty line items, one supplier.',
       href: '/products#materials',
       size: 'small',
+      image: { src: './images/dcdb-enclosure.webp', width: 900, height: 631 },
     },
   ] satisfies Pillar[],
 } as const;
@@ -366,6 +372,14 @@ export const products = {
         },
       ],
     },
+    image: {
+      webp: './images/inverter-wall-unit.webp',
+      webpSmall: './images/inverter-wall-unit-800.webp',
+      png: './images/inverter-wall-unit.png',
+      width: 904,
+      height: 1074,
+      alt: 'A wall-mounted solar inverter with its display showing input and output voltage, and PV, battery and AC output cables entering the base.',
+    },
     guidance:
       'Choosing between them comes down to your shading, your panel orientation, whether you want storage, and whether you need power during an outage — set against your budget. Talk it through with an installer who has seen the roof. We do that before quoting, not after.',
   },
@@ -377,6 +391,13 @@ export const products = {
     whyHeading: 'Why households actually buy storage',
     whyBody:
       "For most people the deciding factor isn't the economics. It's the feel-good factor, or backup power in an emergency — and in our view self-sufficiency and energy security are perfectly good reasons on their own.",
+    image: {
+      webp: './images/battery-lifepo4.webp',
+      png: './images/battery-lifepo4.png',
+      width: 780,
+      height: 870,
+      alt: 'A floor-standing lithium iron phosphate solar battery cabinet with its charge display showing a full state of charge.',
+    },
     doesHeading: 'What a battery does',
     does: [
       'Raises the energy independence of your solar system',

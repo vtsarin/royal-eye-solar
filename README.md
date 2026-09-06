@@ -96,10 +96,16 @@ CLS down. Everything renders through `<picture>` with WebP first.
 1. **A vector logo.** `public/brand/logo-royaleye-light.png` is an 847px raster
    lifted from a Canva export. It holds at nav and footer size but will soften
    on any larger treatment or in print.
-2. **A REX battery photograph.** The brochure's battery shot is a competitor's
-   Century Lithium Pro unit, so it was deliberately excluded. The batteries
-   section on `/products` carries the `84 months` warranty figure
-   typographically instead of an image.
+2. **Real product photography for the inverter and battery sections.** Those two
+   sections on `/products` currently use **AI-generated illustrative renders**,
+   background-removed to transparent cutouts
+   (`public/images/inverter-wall-unit.*`, `public/images/battery-lifepo4.*`;
+   originals kept in `royal-eye-assets/images/*-source.png`). They carry generic
+   labels — "SOLAR INVERTER", "SOLAR BATTERY / LITHIUM IRON PHOSPHATE" — so they
+   do not impersonate a brand, but they are **not photographs of hardware Royal
+   Eye actually supplies**. Replace them with real shots of the REX battery and a
+   stocked inverter when the client provides them. The brochure's own battery
+   shot could not be used: it pictures a competitor's Century Lithium Pro unit.
 3. **A regenerated OG card.** `public/images/og-image.jpg` was typeset in
    Poppins because Sora was unavailable when the asset pack was built. Worth
    regenerating in Sora to match the site.

@@ -128,12 +128,32 @@ export default function Products() {
       <section id="inverters" className="grid-field scroll-mt-36 border-t border-line-subtle bg-ink-900/30 py-24 md:py-28">
         <div className="shell">
           <div className="grid gap-12 lg:grid-cols-[5fr_7fr] lg:gap-16">
-            <Reveal>
-              <h2 className="text-display-lg">{inverters.h2}</h2>
-              <p className="mt-7 text-body-lg text-fg-secondary">{inverters.lead}</p>
-            </Reveal>
-            <Reveal delay={0.08}>
-              <p className="measure text-body text-fg-secondary lg:pt-4">{inverters.body}</p>
+            <div className="lg:order-2">
+              <Reveal>
+                <h2 className="text-display-lg">{inverters.h2}</h2>
+                <p className="mt-7 text-body-lg text-fg-secondary">{inverters.lead}</p>
+              </Reveal>
+              <Reveal delay={0.08}>
+                <p className="measure mt-8 text-body text-fg-secondary">{inverters.body}</p>
+              </Reveal>
+            </div>
+            <Reveal className="lg:order-1" delay={0.06}>
+              <picture>
+                <source
+                  type="image/webp"
+                  sizes="(min-width: 1024px) 34vw, 80vw"
+                  srcSet={`${inverters.image.webpSmall} 800w, ${inverters.image.webp} 904w`}
+                />
+                <img
+                  src={inverters.image.png}
+                  alt={inverters.image.alt}
+                  width={inverters.image.width}
+                  height={inverters.image.height}
+                  loading="lazy"
+                  decoding="async"
+                  className="mx-auto h-auto w-full max-w-[380px]"
+                />
+              </picture>
             </Reveal>
           </div>
 
@@ -203,18 +223,32 @@ export default function Products() {
                 <p className="measure mt-4 text-body text-fg-secondary">{batteries.whyBody}</p>
               </div>
             </Reveal>
-          </div>
 
-          <div className="flex flex-col gap-14">
-            <Reveal>
-              {/* No REX product photo exists — the warranty figure carries the section instead. */}
-              <div className="border-y border-line-subtle py-10">
+            <Reveal delay={0.14}>
+              <div className="mt-14 border-y border-line-subtle py-10">
                 <p className="flex items-baseline gap-3">
                   <span className="font-mono text-display-xl leading-none text-amber-400">{batteries.figure.value}</span>
                   <span className="font-mono text-display-md text-fg-secondary">{batteries.figure.unit}</span>
                 </p>
                 <p className="mt-5 text-caption uppercase tracking-[0.14em] text-fg-muted">{batteries.figure.caption}</p>
               </div>
+            </Reveal>
+          </div>
+
+          <div className="flex flex-col gap-14">
+            <Reveal>
+              <picture>
+                <source type="image/webp" srcSet={batteries.image.webp} />
+                <img
+                  src={batteries.image.png}
+                  alt={batteries.image.alt}
+                  width={batteries.image.width}
+                  height={batteries.image.height}
+                  loading="lazy"
+                  decoding="async"
+                  className="mx-auto h-auto w-full max-w-[340px]"
+                />
+              </picture>
             </Reveal>
 
             <Reveal delay={0.08}>
