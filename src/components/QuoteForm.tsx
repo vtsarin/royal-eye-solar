@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Check, Loader2 } from 'lucide-react';
-import { contact } from '../lib/content';
+import { contact, formEndpoint } from '../lib/content';
 import { easeOut } from '../lib/motion';
 
 const { form } = contact;
@@ -75,13 +75,14 @@ export function QuoteForm() {
 
     setStatus('submitting');
     try {
-      const endpoint = import.meta.env.VITE_FORM_ENDPOINT;
-      if (!endpoint) throw new Error('VITE_FORM_ENDPOINT is not configured');
+      if (formEndpoint.includes('REPLACE_WITH_FORM_ID')) {
+        throw new Error('Formspree form id not set in lib/content.ts');
+      }
 
       const body = new FormData();
       Object.entries(values).forEach(([key, value]) => body.append(key, value));
 
-      const response = await fetch(endpoint, { method: 'POST', headers: { Accept: 'application/json' }, body });
+      const response = await fetch(formEndpoint, { method: 'POST', headers: { Accept: 'application/json' }, body });
       if (!response.ok) throw new Error('Submission rejected');
       setStatus('success');
     } catch {

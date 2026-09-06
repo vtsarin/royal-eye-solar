@@ -63,6 +63,7 @@ export function Footer() {
         <div className="shell flex flex-col gap-3 py-7 text-caption text-fg-muted md:flex-row md:items-center md:justify-between">
           <p>{footer.bottom.copyright}</p>
           <p>{footer.bottom.dealers}</p>
+          <p className="text-fg-muted">{footer.bottom.photography}</p>
         </div>
       </div>
     </footer>

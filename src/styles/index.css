@@ -177,6 +177,134 @@
   }
 }
 
+/* ---- Photo filmstrip ---- */
+.filmstrip {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.filmstrip .frame {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 10px;
+  background: #0a0e1a;
+  padding: 0;
+  cursor: pointer;
+  aspect-ratio: 16 / 10;
+}
+
+.filmstrip .frame picture,
+.filmstrip .frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Inactive frames sit back behind an ink wash rather than a costly filter. */
+.filmstrip .frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(5, 7, 15, 0.92), rgba(5, 7, 15, 0.55));
+  opacity: 1;
+  transition: opacity 600ms var(--ease-snap);
+  pointer-events: none;
+}
+
+.filmstrip .frame.is-active::after {
+  opacity: 0;
+}
+
+.filmstrip .frame:hover::after {
+  opacity: 0.35;
+}
+
+.filmstrip .frame-index {
+  position: absolute;
+  bottom: 0.9rem;
+  left: 1rem;
+  z-index: 1;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.8125rem;
+  color: #646c87;
+  transition: color 600ms var(--ease-snap);
+}
+
+.filmstrip .frame.is-active .frame-index {
+  color: #ffb020;
+}
+
+.filmstrip .frame.is-active {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+/* Dwell indicator: a hairline that fills while the frame holds focus. */
+.filmstrip .frame-dwell {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  height: 2px;
+  width: 100%;
+  transform-origin: left center;
+  transform: scaleX(0);
+  background: #ffb020;
+}
+
+.filmstrip[data-running='true'] .frame-dwell {
+  animation: frame-dwell 5s linear forwards;
+}
+
+@keyframes frame-dwell {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (min-width: 768px) {
+  .filmstrip {
+    flex-direction: row;
+    height: 30rem;
+    gap: 0.875rem;
+  }
+
+  .filmstrip .frame {
+    aspect-ratio: auto;
+    flex: 1 1 0;
+    min-width: 0;
+    /* Focus takes the room. Only three boxes reflow, so the cost is negligible. */
+    transition:
+      flex-grow 700ms var(--ease-snap),
+      border-color 600ms var(--ease-snap);
+  }
+
+  .filmstrip .frame.is-active {
+    flex-grow: 3.4;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .filmstrip .frame::after {
+    opacity: 0.35;
+  }
+
+  .filmstrip .frame.is-active::after {
+    opacity: 0;
+  }
+
+  .filmstrip .frame-dwell {
+    animation: none !important;
+    transform: scaleX(1);
+  }
+}
+
 /* ---- Kerala branch map ---- */
 .branch {
   cursor: pointer;

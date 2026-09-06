@@ -1,6 +1,6 @@
-import { BifacialToggle } from '../components/BifacialToggle';
 import { Reveal, RevealGroup, RevealItem } from '../components/Reveal';
 import { whyRoyalEye } from '../lib/content';
+import { PhotoFilmstrip } from '../components/PhotoFilmstrip';
 
 export function WhyRoyalEye() {
   return (
@@ -28,14 +28,16 @@ export function WhyRoyalEye() {
           ))}
         </RevealGroup>
 
-        <div className="mt-20 grid gap-12 lg:grid-cols-[7fr_5fr] lg:items-center lg:gap-16">
-          <Reveal>
-            <BifacialToggle />
-          </Reveal>
-          <Reveal delay={0.1}>
-            <p className="measure text-body-lg text-fg-secondary">{whyRoyalEye.closing}</p>
+        <Reveal className="mt-20">
+          <PhotoFilmstrip images={whyRoyalEye.gallery} />
+        </Reveal>
+
+        <div className="mt-14 grid gap-10 lg:grid-cols-[5fr_7fr] lg:gap-16">
+          <Reveal delay={0.06}>
+            <p className="text-body-lg text-fg-secondary">{whyRoyalEye.closing}</p>
           </Reveal>
         </div>
+
       </div>
     </section>
   );

@@ -82,6 +82,7 @@ export const footer = {
   bottom: {
     copyright: '© 2026 Royal Eye Solar Power. Thrissur, Kerala.',
     dealers: 'Authorised dealer — Vikram · Adani · ReNew · Goldi · UTL · Solaire · INVT · Sofar · Deye',
+    photography: 'Photography by Nuno Marques, Markus Spiske and Sungrow EMEA via Unsplash.',
   },
 } as const;
 
@@ -209,6 +210,32 @@ export const whyRoyalEye = {
       body: 'Back-contact cells move the contacts off the front face entirely, so no active area is lost to shading from the busbars. The most efficient cell type in production.',
     },
   ] satisfies TechCell[] as TechCell[],
+  gallery: [
+    {
+      webp: './images/panels-mono.webp',
+      webpSmall: './images/panels-mono-900.webp',
+      jpg: './images/panels-mono.jpg',
+      width: 1600,
+      height: 1083,
+      alt: 'Rows of ground-mounted solar panels photographed in black and white.',
+    },
+    {
+      webp: './images/installer-at-panel.webp',
+      webpSmall: './images/installer-at-panel-900.webp',
+      jpg: './images/installer-at-panel.jpg',
+      width: 1600,
+      height: 1067,
+      alt: 'A technician working on a solar panel.',
+    },
+    {
+      webp: './images/panels-plant-blue.webp',
+      webpSmall: './images/panels-plant-blue-900.webp',
+      jpg: './images/panels-plant-blue.jpg',
+      width: 1600,
+      height: 1067,
+      alt: 'A ground-mounted photovoltaic plant with long rows of blue solar panels.',
+    },
+  ],
   bifacialToggle: {
     labels: { front: 'Front face only', both: 'Both faces' },
     states: {
@@ -542,7 +569,7 @@ export const contact = {
 
 /* ---------- 5. Metadata ---------- */
 
-export const siteUrl = (import.meta.env.VITE_SITE_URL ?? 'https://royaleyesolar.com').replace(/\/$/, '');
+export const siteUrl = 'https://royaleyesolar.com';
 
 export const routeMeta = {
   '/': {
@@ -563,6 +590,12 @@ export const routeMeta = {
 } as const;
 
 export const ogImage = './images/og-image.jpg';
+
+/**
+ * Endpoint the /contact quote form POSTs to. Replace the form id below with the
+ * one from your Formspree dashboard — it is the only value this site needs.
+ */
+export const formEndpoint = 'https://formspree.io/f/REPLACE_WITH_FORM_ID';
 
 export const jsonLd = {
   '@context': 'https://schema.org',

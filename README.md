@@ -8,8 +8,7 @@ TypeScript + Tailwind + Framer Motion. Three routes (`/`, `/products`,
 
 ```bash
 npm install
-cp .env.example .env.local   # then fill in VITE_FORM_ENDPOINT
-npm run dev                  # http://localhost:5173
+npm run dev     # http://localhost:5173
 ```
 
 ```bash
@@ -18,12 +17,22 @@ npm run preview     # serve the built output
 npm run typecheck
 ```
 
-## Environment variables
+## Configuration
 
-| Variable | Required | Purpose |
-|---|---|---|
-| `VITE_FORM_ENDPOINT` | For a working quote form | Endpoint the `/contact` form POSTs to as `multipart/form-data`. Built against Formspree; anything accepting a form POST and returning 2xx works. Unset, the form still validates but every submission lands on the failure state. |
-| `VITE_SITE_URL` | No | Absolute origin for `canonical` and `og:*` URLs. Defaults to `https://royaleyesolar.com`. Set this if the site is served from another domain. |
+There are no environment variables. One value needs setting once, in
+`src/lib/content.ts`:
+
+```ts
+export const formEndpoint = 'https://formspree.io/f/REPLACE_WITH_FORM_ID';
+```
+
+That is the endpoint the `/contact` quote form POSTs to as
+`multipart/form-data`. Built against Formspree; anything that accepts a form
+POST and returns 2xx works. Until it is replaced, the form still validates but
+every submission lands on the failure state.
+
+The site origin used for `canonical` and `og:*` URLs is hardcoded as
+`https://royaleyesolar.com` in the same file (`siteUrl`).
 
 ## Deploying
 
