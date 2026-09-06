@@ -1,5 +1,32 @@
 /** All site copy, from CONTENT.md. Section numbers below match that file. */
 
+import logoRoyalEyeLight from '../assets/brand/logo-royaleye-light.png';
+import installerAtWorkWebp from '../assets/images/installer-at-work.webp';
+import installerAtWork800Webp from '../assets/images/installer-at-work-800.webp';
+import installerAtWorkJpg from '../assets/images/installer-at-work.jpg';
+import panelArrayRenderWebp from '../assets/images/panel-array-render.webp';
+import panelArrayRenderPng from '../assets/images/panel-array-render.png';
+import inverterWallUnit800Webp from '../assets/images/inverter-wall-unit-800.webp';
+import inverterWallUnitWebp from '../assets/images/inverter-wall-unit.webp';
+import inverterWallUnitPng from '../assets/images/inverter-wall-unit.png';
+import batteryLifepo4Webp from '../assets/images/battery-lifepo4.webp';
+import batteryLifepo4Png from '../assets/images/battery-lifepo4.png';
+import dcdbEnclosureWebp from '../assets/images/dcdb-enclosure.webp';
+import dcdbEnclosurePng from '../assets/images/dcdb-enclosure.png';
+import panelsMonoWebp from '../assets/images/panels-mono.webp';
+import panelsMono900Webp from '../assets/images/panels-mono-900.webp';
+import panelsMonoJpg from '../assets/images/panels-mono.jpg';
+import installerAtPanelWebp from '../assets/images/installer-at-panel.webp';
+import installerAtPanel900Webp from '../assets/images/installer-at-panel-900.webp';
+import installerAtPanelJpg from '../assets/images/installer-at-panel.jpg';
+import panelsPlantBlueWebp from '../assets/images/panels-plant-blue.webp';
+import panelsPlantBlue900Webp from '../assets/images/panels-plant-blue-900.webp';
+import panelsPlantBlueJpg from '../assets/images/panels-plant-blue.jpg';
+import mountingClampsWebp from '../assets/images/mounting-clamps.webp';
+import mountingClampsPng from '../assets/images/mounting-clamps.png';
+import dcCableCoilWebp from '../assets/images/dc-cable-coil.webp';
+import dcCableCoilPng from '../assets/images/dc-cable-coil.png';
+
 export interface Phone {
   display: string;
   href: string;
@@ -18,7 +45,7 @@ export const brand = {
   lockupSub: 'Solar power',
   positioning: 'Solar energy solutions for a sustainable tomorrow',
   descriptor: "Kerala's end-to-end solar partner since 2000",
-  logo: './brand/logo-royaleye-light.png',
+  logo: logoRoyalEyeLight,
 } as const;
 
 export const nav = {
@@ -122,9 +149,9 @@ export const about = {
   supporting:
     "Customers come back for the illumination capacity, the cost per unit, the power saving and the simplicity of the install. Where a standard configuration doesn't fit, we build to the requirement instead.",
   image: {
-    webp: './images/installer-at-work.webp',
-    webpSmall: './images/installer-at-work-800.webp',
-    jpg: './images/installer-at-work.jpg',
+    webp: installerAtWorkWebp,
+    webpSmall: installerAtWork800Webp,
+    jpg: installerAtWorkJpg,
     width: 1600,
     height: 1067,
     alt: 'A Royal Eye technician fitting a rooftop solar panel array.',
@@ -153,7 +180,7 @@ export const productPillars = {
       body: 'Vikram, Adani, ReNew, Goldi and UTL. Topcon cells and bifacial construction, specified for Indian heat and Indian grid conditions.',
       href: '/products#panels',
       size: 'large',
-      image: { src: './images/panel-array-render.webp', width: 1200, height: 1183 },
+      image: { src: panelArrayRenderWebp, width: 1200, height: 1183 },
     },
     {
       index: '02',
@@ -161,7 +188,7 @@ export const productPillars = {
       body: 'Solaire, INVT, Sofar, Deye and UTL. String, micro and hybrid — chosen against your shading, orientation and backup needs, not against a price list.',
       href: '/products#inverters',
       size: 'large',
-      image: { src: './images/inverter-wall-unit-800.webp', width: 800, height: 950 },
+      image: { src: inverterWallUnit800Webp, width: 800, height: 950 },
     },
     {
       index: '03',
@@ -169,7 +196,7 @@ export const productPillars = {
       body: 'REX, our own brand, in both lithium and lead-acid. Backed for 84 months.',
       href: '/products#batteries',
       size: 'small',
-      image: { src: './images/battery-lifepo4.webp', width: 780, height: 870 },
+      image: { src: batteryLifepo4Webp, width: 780, height: 870 },
     },
     {
       index: '04',
@@ -177,7 +204,7 @@ export const productPillars = {
       body: 'Every cable, clamp, connector and enclosure a compliant install needs. Twenty line items, one supplier.',
       href: '/products#materials',
       size: 'small',
-      image: { src: './images/dcdb-enclosure.webp', width: 900, height: 631 },
+      image: { src: dcdbEnclosureWebp, width: 900, height: 631 },
     },
   ] satisfies Pillar[],
 } as const;
@@ -212,46 +239,30 @@ export const whyRoyalEye = {
   ] satisfies TechCell[] as TechCell[],
   gallery: [
     {
-      webp: './images/panels-mono.webp',
-      webpSmall: './images/panels-mono-900.webp',
-      jpg: './images/panels-mono.jpg',
+      webp: panelsMonoWebp,
+      webpSmall: panelsMono900Webp,
+      jpg: panelsMonoJpg,
       width: 1600,
       height: 1083,
       alt: 'Rows of ground-mounted solar panels photographed in black and white.',
     },
     {
-      webp: './images/installer-at-panel.webp',
-      webpSmall: './images/installer-at-panel-900.webp',
-      jpg: './images/installer-at-panel.jpg',
+      webp: installerAtPanelWebp,
+      webpSmall: installerAtPanel900Webp,
+      jpg: installerAtPanelJpg,
       width: 1600,
       height: 1067,
       alt: 'A technician working on a solar panel.',
     },
     {
-      webp: './images/panels-plant-blue.webp',
-      webpSmall: './images/panels-plant-blue-900.webp',
-      jpg: './images/panels-plant-blue.jpg',
+      webp: panelsPlantBlueWebp,
+      webpSmall: panelsPlantBlue900Webp,
+      jpg: panelsPlantBlueJpg,
       width: 1600,
       height: 1067,
       alt: 'A ground-mounted photovoltaic plant with long rows of blue solar panels.',
     },
   ],
-  bifacialToggle: {
-    labels: { front: 'Front face only', both: 'Both faces' },
-    states: {
-      front: {
-        rays: 'Direct sun on front face',
-        value: 'Baseline',
-        caption: 'Conventional monofacial panel',
-      },
-      both: {
-        rays: 'Direct sun plus ground-reflected',
-        value: '+5–30%',
-        caption: 'Bifacial capture, both faces',
-      },
-    },
-    note: 'Actual gain depends on ground surface, mounting height and tilt. We measure yours before quoting.',
-  },
   closing:
     'Our products are suited to Indian weather and grid conditions, which is what makes solar work out techno-commercially rather than just technically.',
 } as const;
@@ -362,8 +373,8 @@ export const products = {
       },
     ],
     image: {
-      webp: './images/panel-array-render.webp',
-      png: './images/panel-array-render.png',
+      webp: panelArrayRenderWebp,
+      png: panelArrayRenderPng,
       width: 1200,
       height: 1183,
       alt: 'Three solar panels shown at an angle, cell grid visible.',
@@ -400,9 +411,9 @@ export const products = {
       ],
     },
     image: {
-      webp: './images/inverter-wall-unit.webp',
-      webpSmall: './images/inverter-wall-unit-800.webp',
-      png: './images/inverter-wall-unit.png',
+      webp: inverterWallUnitWebp,
+      webpSmall: inverterWallUnit800Webp,
+      png: inverterWallUnitPng,
       width: 904,
       height: 1074,
       alt: 'A wall-mounted solar inverter with its display showing input and output voltage, and PV, battery and AC output cables entering the base.',
@@ -419,8 +430,8 @@ export const products = {
     whyBody:
       "For most people the deciding factor isn't the economics. It's the feel-good factor, or backup power in an emergency — and in our view self-sufficiency and energy security are perfectly good reasons on their own.",
     image: {
-      webp: './images/battery-lifepo4.webp',
-      png: './images/battery-lifepo4.png',
+      webp: batteryLifepo4Webp,
+      png: batteryLifepo4Png,
       width: 780,
       height: 870,
       alt: 'A floor-standing lithium iron phosphate solar battery cabinet with its charge display showing a full state of charge.',
@@ -457,22 +468,22 @@ export const products = {
     closing: 'Twenty categories, one purchase order, one delivery, one point of accountability.',
     images: [
       {
-        webp: './images/dcdb-enclosure.webp',
-        png: './images/dcdb-enclosure.png',
+        webp: dcdbEnclosureWebp,
+        png: dcdbEnclosurePng,
         width: 900,
         height: 631,
         alt: 'DC distribution box with breakers and surge protection.',
       },
       {
-        webp: './images/mounting-clamps.webp',
-        png: './images/mounting-clamps.png',
+        webp: mountingClampsWebp,
+        png: mountingClampsPng,
         width: 800,
         height: 790,
         alt: 'Aluminium mid-clamps and end-clamps for panel mounting.',
       },
       {
-        webp: './images/dc-cable-coil.webp',
-        png: './images/dc-cable-coil.png',
+        webp: dcCableCoilWebp,
+        png: dcCableCoilPng,
         width: 800,
         height: 494,
         alt: 'Coil of green solar DC cable.',

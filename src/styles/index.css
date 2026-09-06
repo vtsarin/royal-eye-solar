@@ -72,7 +72,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background-image: url('/svg/grid-texture.svg');
+    background-image: url('../assets/svg/grid-texture.svg');
     background-repeat: repeat;
     background-size: 72px 72px;
     -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 45%, #000 20%, transparent 78%);
@@ -367,22 +367,6 @@
     opacity: 0.14;
     transform: scale(1);
   }
-}
-
-/* ---- Bifacial diagram states ---- */
-.bifacial-svg #front-capture,
-.bifacial-svg #rear-capture,
-.bifacial-svg #yield-value,
-.bifacial-svg #yield-caption {
-  transition: opacity 300ms var(--ease-snap);
-}
-
-.bifacial-svg[data-state='front'] #rear-capture {
-  opacity: 0;
-}
-
-.bifacial-svg[data-state='both'] #rear-capture {
-  opacity: 1;
 }
 
 @media (prefers-reduced-motion: reduce) {
