@@ -1,7 +1,7 @@
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Navigation, Phone as PhoneIcon } from 'lucide-react';
 import { QuoteForm } from '../components/QuoteForm';
 import { Reveal } from '../components/Reveal';
-import { branches, contact, headOffice, phones, routeMeta } from '../lib/content';
+import { branches, contact, directPhone, headOffice, officePhones, routeMeta } from '../lib/content';
 import { useSeo } from '../lib/seo';
 
 export default function Contact() {
@@ -25,9 +25,23 @@ export default function Contact() {
               <p className="measure mt-5 text-body text-fg-secondary">{contact.call.intro}</p>
             </Reveal>
 
-            <Reveal delay={0.08}>
-              <ul className="mt-10 border-t border-line-subtle">
-                {phones.map((phone) => (
+            <Reveal delay={0.08} className="mt-10">
+              <a
+                href={directPhone.href}
+                className="group flex min-h-[88px] flex-wrap items-center justify-between gap-x-6 gap-y-2 rounded-card border border-amber-400/40 bg-amber-400/[0.06] px-6 py-6 transition-colors duration-200 hover:border-amber-400"
+              >
+                <span className="flex items-center gap-3 font-mono text-display-md text-fg-primary transition-colors group-hover:text-amber-300">
+                  <PhoneIcon strokeWidth={1.5} size={22} className="text-amber-400" aria-hidden="true" />
+                  {directPhone.display}
+                </span>
+                <span className="text-caption uppercase tracking-[0.12em] text-amber-100">{directPhone.label}</span>
+              </a>
+            </Reveal>
+
+            <Reveal delay={0.1}>
+              <h3 className="eyebrow mt-10">{contact.call.officeHeading}</h3>
+              <ul className="mt-4 border-t border-line-subtle">
+                {officePhones.map((phone) => (
                   <li key={phone.href}>
                     <a
                       href={phone.href}
@@ -41,6 +55,21 @@ export default function Contact() {
                   </li>
                 ))}
               </ul>
+            </Reveal>
+
+            <Reveal delay={0.12} className="mt-14">
+              <h2 className="eyebrow">{contact.branchBlock.h2}</h2>
+              <ul className="mt-6 flex flex-wrap gap-x-3 gap-y-2 border-t border-line-subtle pt-6">
+                {branches.map((branch) => (
+                  <li
+                    key={branch}
+                    className="rounded-pill border border-line-subtle px-3.5 py-1.5 text-caption text-fg-primary"
+                  >
+                    {branch}
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-5 max-w-[40ch] text-caption text-fg-muted">{contact.branchBlock.note}</p>
             </Reveal>
           </div>
 
@@ -77,21 +106,28 @@ export default function Contact() {
                   </span>
                 ))}
               </address>
-            </Reveal>
 
-            <Reveal delay={0.1}>
-              <h2 className="eyebrow">{contact.branchBlock.h2}</h2>
-              <ul className="mt-6 flex flex-wrap gap-x-3 gap-y-2 border-t border-line-subtle pt-6">
-                {branches.map((branch) => (
-                  <li
-                    key={branch}
-                    className="rounded-pill border border-line-subtle px-3.5 py-1.5 text-caption text-fg-primary"
-                  >
-                    {branch}
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-5 max-w-[40ch] text-caption text-fg-muted">{contact.branchBlock.note}</p>
+              <a
+                href={headOffice.mapsUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="btn-text mt-4"
+              >
+                Get directions
+                <Navigation strokeWidth={1.5} size={15} aria-hidden="true" />
+              </a>
+
+              <div className="mt-5 overflow-hidden rounded-card border border-line-subtle">
+                <iframe
+                  title="Royal Eye Solar Power head office location"
+                  src={`https://www.google.com/maps?q=${headOffice.coordinates.lat},${headOffice.coordinates.lng}&z=16&output=embed`}
+                  width="100%"
+                  height="260"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="block border-0"
+                />
+              </div>
             </Reveal>
           </div>
         </div>

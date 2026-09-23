@@ -1,7 +1,8 @@
 import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
+import emailjs from '@emailjs/browser';
 import { Check, Loader2 } from 'lucide-react';
-import { contact, formEndpoint } from '../lib/content';
+import { contact, emailConfig } from '../lib/content';
 import { easeOut } from '../lib/motion';
 
 const { form } = contact;
@@ -75,15 +76,22 @@ export function QuoteForm() {
 
     setStatus('submitting');
     try {
-      if (formEndpoint.includes('REPLACE_WITH_FORM_ID')) {
-        throw new Error('Formspree form id not set in lib/content.ts');
+      if (Object.values(emailConfig).some((value) => value.includes('REPLACE_WITH'))) {
+        throw new Error('EmailJS service/template/public key not set in lib/content.ts');
       }
 
-      const body = new FormData();
-      Object.entries(values).forEach(([key, value]) => body.append(key, value));
-
-      const response = await fetch(formEndpoint, { method: 'POST', headers: { Accept: 'application/json' }, body });
-      if (!response.ok) throw new Error('Submission rejected');
+      await emailjs.send(
+        emailConfig.serviceId,
+        emailConfig.templateId,
+        {
+          name: values.name,
+          phone: values.phone,
+          city: values.city,
+          system_type: values.systemType,
+          message: values.message,
+        },
+        { publicKey: emailConfig.publicKey },
+      );
       setStatus('success');
     } catch {
       setStatus('error');

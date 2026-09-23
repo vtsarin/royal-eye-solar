@@ -9,10 +9,11 @@ import panelArrayRenderPng from '../assets/images/panel-array-render.png';
 import inverterWallUnit800Webp from '../assets/images/inverter-wall-unit-800.webp';
 import inverterWallUnitWebp from '../assets/images/inverter-wall-unit.webp';
 import inverterWallUnitPng from '../assets/images/inverter-wall-unit.png';
-import batteryLifepo4Webp from '../assets/images/battery-lifepo4.webp';
-import batteryLifepo4Png from '../assets/images/battery-lifepo4.png';
+import batteryRexLithiumWebp from '../assets/images/battery/battery-rex-lithium.webp';
+import batteryRexLithiumPng from '../assets/images/battery/battery-rex-lithium.png';
+import batteryTubularWebp from '../assets/images/battery/battery-royal-eye-tubular.webp';
+import batteryTubularPng from '../assets/images/battery/battery-royal-eye-tubular.png';
 import dcdbEnclosureWebp from '../assets/images/dcdb-enclosure.webp';
-import dcdbEnclosurePng from '../assets/images/dcdb-enclosure.png';
 import panelsMonoWebp from '../assets/images/panels-mono.webp';
 import panelsMono900Webp from '../assets/images/panels-mono-900.webp';
 import panelsMonoJpg from '../assets/images/panels-mono.jpg';
@@ -22,10 +23,29 @@ import installerAtPanelJpg from '../assets/images/installer-at-panel.jpg';
 import panelsPlantBlueWebp from '../assets/images/panels-plant-blue.webp';
 import panelsPlantBlue900Webp from '../assets/images/panels-plant-blue-900.webp';
 import panelsPlantBlueJpg from '../assets/images/panels-plant-blue.jpg';
-import mountingClampsWebp from '../assets/images/mounting-clamps.webp';
-import mountingClampsPng from '../assets/images/mounting-clamps.png';
-import dcCableCoilWebp from '../assets/images/dc-cable-coil.webp';
-import dcCableCoilPng from '../assets/images/dc-cable-coil.png';
+import materialsCollageWebp from '../assets/images/materials-collage.webp';
+import materialsCollagePng from '../assets/images/materials-collage.png';
+import galleryOneWebp from '../assets/images/projects/gallery-1.webp';
+import galleryOneSmallWebp from '../assets/images/projects/gallery-1-900.webp';
+import galleryOneJpg from '../assets/images/projects/gallery-1.jpg';
+import galleryTwoWebp from '../assets/images/projects/gallery-2.webp';
+import galleryTwoSmallWebp from '../assets/images/projects/gallery-2-900.webp';
+import galleryTwoJpg from '../assets/images/projects/gallery-2.jpg';
+import galleryThreeWebp from '../assets/images/projects/gallery-3.webp';
+import galleryThreeSmallWebp from '../assets/images/projects/gallery-3-900.webp';
+import galleryThreeJpg from '../assets/images/projects/gallery-3.jpg';
+import galleryFourWebp from '../assets/images/projects/gallery-4.webp';
+import galleryFourSmallWebp from '../assets/images/projects/gallery-4-900.webp';
+import galleryFourJpg from '../assets/images/projects/gallery-4.jpg';
+import project5AerialOneWebp from '../assets/images/projects/project-5-aerial-1.webp';
+import project5AerialOneSmallWebp from '../assets/images/projects/project-5-aerial-1-900.webp';
+import project5AerialOneJpg from '../assets/images/projects/project-5-aerial-1.jpg';
+import project5FrameWebp from '../assets/images/projects/project-5-frame.webp';
+import project5FrameSmallWebp from '../assets/images/projects/project-5-frame-900.webp';
+import project5FrameJpg from '../assets/images/projects/project-5-frame.jpg';
+import project5AerialTwoWebp from '../assets/images/projects/project-5-aerial-2.webp';
+import project5AerialTwoSmallWebp from '../assets/images/projects/project-5-aerial-2-900.webp';
+import project5AerialTwoJpg from '../assets/images/projects/project-5-aerial-2.jpg';
 
 export interface Phone {
   display: string;
@@ -52,25 +72,40 @@ export const nav = {
   links: [
     { label: 'Home', href: '/' },
     { label: 'Products', href: '/products' },
+    { label: 'Projects', href: '/projects' },
+    { label: 'Team', href: '/team' },
     { label: 'Contact', href: '/contact' },
   ],
-  cta: { label: 'Call now', href: 'tel:+917034022604' },
+  cta: { label: 'Call now', href: 'tel:+919539533852' },
 } as const;
 
-export const phones: Phone[] = [
-  { display: '70340 22604', href: 'tel:+917034022604', label: 'Sales — primary' },
-  { display: '70340 22606', href: 'tel:+917034022606', label: 'Sales' },
+export const directPhone: Phone = {
+  display: '95395 33852',
+  href: 'tel:+919539533852',
+  label: 'Direct enquiry — quotation, WhatsApp',
+};
+
+/** Office numbers only. For every tap target on the page, use `phones` instead. */
+export const officePhones: Phone[] = [
+  { display: '70340 22604', href: 'tel:+917034022604', label: 'Sales' },
+  { display: '98466 53834', href: 'tel:+919846653834', label: 'Sales' },
   { display: '70340 22602', href: 'tel:+917034022602', label: 'Service and installation' },
-  { display: '98468 22578', href: 'tel:+919846822578', label: 'Enquiries' },
+  { display: '98468 22678', href: 'tel:+919846822678', label: 'Enquiries' },
 ];
 
+/** Direct-enquiry number first, then the four office numbers. */
+export const phones: Phone[] = [directPhone, ...officePhones];
+
 export const whatsapp = {
-  href: "https://wa.me/917034022604?text=Hi%20Royal%20Eye%20Solar%2C%20I%27d%20like%20a%20quote%20for%20a%20solar%20system.",
+  href: "https://wa.me/919539533852?text=Hi%20Royal%20Eye%20Solar%2C%20I%27d%20like%20a%20quote%20for%20a%20solar%20system.",
   label: 'WhatsApp us',
 } as const;
 
 export const headOffice = {
   lines: ['Royal Eye Solar Power', 'Manoharan Building, Edamuttam', 'Near SBI, Thrissur, Kerala 680568'],
+  /** From the verified Google Business Profile listing ("Royal eye solar power"), not a manually dropped pin. */
+  coordinates: { lat: 10.3744298, lng: 76.1232135 },
+  mapsUrl: 'https://maps.app.goo.gl/YeH1SkufcyUwog9q7',
 } as const;
 
 export const branches = ['Vadakara', 'Calicut', 'Kottayam', 'Pathanamthitta', 'Trivandrum'] as const;
@@ -80,9 +115,11 @@ export const contactDetails = {
   website: 'royaleyesolar.com',
 } as const;
 
+export const brochureUrl = 'https://royaleyesolar.com/brochure.pdf';
+
 export const footer = {
   blurb:
-    'End-to-end solar for Kerala homes and businesses. Panels, inverters, batteries and every component in between — supplied, installed and serviced since 2000.',
+    'End-to-end solar for Kerala homes, businesses and institutions. Panels, inverters, batteries and every component in between — supplied, installed and serviced since 2000.',
   columns: [
     {
       heading: 'Products',
@@ -99,16 +136,24 @@ export const footer = {
       heading: 'Company',
       items: [
         { label: 'About Royal Eye', href: '/#about' },
+        { label: 'Projects', href: '/projects' },
+        { label: 'Team', href: '/team' },
         { label: 'Coverage', href: '/#coverage' },
         { label: 'Contact', href: '/contact' },
         { label: 'Request a quote', href: '/contact#quote' },
+        { label: 'Download brochure', href: brochureUrl },
       ],
     },
   ],
   reachHeading: 'Reach us',
+  recognition: [
+    'Listed on the MNRE National Portal for Rooftop Solar vendor directory',
+    'Rated 4.3/5 from 15 ratings on Justdial (third-party listing)',
+  ],
   bottom: {
     copyright: '© 2026 Royal Eye Solar Power. Thrissur, Kerala.',
-    dealers: 'Authorised dealer — Vikram · Adani · ReNew · Goldi · UTL · Solaire · INVT · Sofar · Deye',
+    dealers:
+      'Authorised dealer — Vikram · Adani · ReNew · Goldi · UTL · Waaree · Emvee · Avaada · Solaire · INVT · Sofar · Deye',
     photography: 'Photography by Nuno Marques, Markus Spiske and Sungrow EMEA via Unsplash.',
   },
 } as const;
@@ -120,7 +165,7 @@ export const hero = {
   h1: 'The sun shows up every day. We make sure your roof is ready for it.',
   h1Mobile: '25 years of Kerala rooftops.',
   sub: 'Royal Eye Solar Power has supplied and installed solar across Kerala for 25 years — panels, inverters, batteries and every component the system needs, from one team that answers the phone afterwards.',
-  primary: { label: 'Call now', href: 'tel:+917034022604' } as Cta,
+  primary: { label: 'Call now', href: 'tel:+919539533852' } as Cta,
   secondary: { label: 'See what we supply', href: '/products' } as Cta,
   scrollCue: 'Scroll',
   ariaLabel:
@@ -185,7 +230,7 @@ export const productPillars = {
     {
       index: '02',
       title: 'Solar inverters',
-      body: 'Solaire, INVT, Sofar, Deye and UTL. String, micro and hybrid — chosen against your shading, orientation and backup needs, not against a price list.',
+      body: 'Solaire, INVT, Sofar, Deye and UTL, plus REX — our own brand. String, micro and hybrid — chosen against your shading, orientation and backup needs, not against a price list.',
       href: '/products#inverters',
       size: 'large',
       image: { src: inverterWallUnit800Webp, width: 800, height: 950 },
@@ -196,7 +241,7 @@ export const productPillars = {
       body: 'REX, our own brand, in both lithium and lead-acid. Backed for 84 months.',
       href: '/products#batteries',
       size: 'small',
-      image: { src: batteryLifepo4Webp, width: 780, height: 870 },
+      image: { src: batteryRexLithiumWebp, width: 709, height: 512 },
     },
     {
       index: '04',
@@ -286,7 +331,7 @@ export const benefits = {
     {
       index: '03',
       title: 'Almost nothing to maintain',
-      body: 'No moving parts. Occasional cleaning, an annual check, and the system does its job for decades.',
+      body: "No moving parts. Occasional cleaning, an annual check, and the system does its job for decades — though expect the inverter to need replacing sooner than the panels; it's the shorter-lived component in any system.",
     },
     {
       index: '04',
@@ -298,9 +343,49 @@ export const benefits = {
 
 /* ---------- 2.7 Brand marquee ---------- */
 
+export const howItWorks = {
+  eyebrow: 'HOW IT WORKS',
+  h2: 'From first call to commissioning, in four steps.',
+  items: [
+    {
+      index: '01',
+      title: 'Site discussion',
+      body: 'Understand your electricity use, roof area and goals.',
+    },
+    {
+      index: '02',
+      title: 'System design',
+      body: 'Select suitable capacity, panel type and inverter configuration.',
+    },
+    {
+      index: '03',
+      title: 'Installation',
+      body: 'Professional project execution from supply through commissioning.',
+    },
+    {
+      index: '04',
+      title: 'Direct support',
+      body: 'Keep one clear contact path for quotation and service enquiries.',
+    },
+  ],
+} as const;
+
 export const marquee = {
   eyebrow: 'AUTHORISED DEALER',
-  names: ['Vikram', 'Adani', 'ReNew', 'Goldi', 'UTL', 'Solaire', 'INVT', 'Sofar', 'Deye'],
+  names: [
+    'Vikram',
+    'Adani',
+    'ReNew',
+    'Goldi',
+    'UTL',
+    'Waaree',
+    'Emvee',
+    'Avaada',
+    'Solaire',
+    'INVT',
+    'Sofar',
+    'Deye',
+  ],
   caption: 'Panels and inverters from the manufacturers whose warranties are worth having.',
 } as const;
 
@@ -326,7 +411,7 @@ export const coverage = {
 export const ctaBand = {
   h2: 'Make the switch to solar.',
   sub: "Tell us your roof and your monthly bill. We'll tell you what the system needs to be — and what it will actually save.",
-  primary: { label: 'Call now', href: 'tel:+917034022604' } as Cta,
+  primary: { label: 'Call now', href: 'tel:+919539533852' } as Cta,
   secondary: { label: 'WhatsApp us', href: whatsapp.href } as Cta,
   tertiary: { label: 'Request a written quote', href: '/contact' } as Cta,
   reassurance:
@@ -349,7 +434,22 @@ export const products = {
   ],
   panels: {
     h2: 'Solar panels',
-    lead: 'We are a major dealer for Vikram, Adani, ReNew, Goldi and UTL — a broad portfolio of renewable technologies, products and solutions supplied to clients globally.',
+    lead: 'We are a major dealer for Vikram, Adani, ReNew, Goldi, UTL, Waaree, Emvee and Avaada — a broad portfolio of renewable technologies, products and solutions supplied to clients globally.',
+    dcr: {
+      heading: 'DCR and Non-DCR panels',
+      body: 'DCR (Domestic Content Requirement) panels are manufactured to the specification eligible for the DCR list published by the Ministry of New and Renewable Energy — relevant where a subsidy or government tender requires it. Non-DCR panels sit outside that list, often on the same underlying cell technology, just not manufactured to the DCR-eligible specification. Which one you need depends on whether your installation is claiming a subsidy that requires DCR content; we confirm this before quoting.',
+      dcrBrands: [
+        'Adani TopCon',
+        'Adani Bifacial',
+        'Waaree TopCon',
+        'Waaree Bifacial',
+        'Emvee TopCon',
+        'Vikram Bifacial',
+        'Renew Bifacial',
+        'Goldi Bifacial',
+      ],
+      nonDcrBrands: ['Vikram TopCon', 'Renew TopCon', 'Avaada TopCon', 'Adani'],
+    },
     techHeading: 'Cell and panel technology',
     tech: [
       { name: 'Topcon cells', effect: 'Consistent efficiency in low light and at high panel temperatures' },
@@ -364,12 +464,12 @@ export const products = {
     configurations: [
       {
         name: 'On-grid',
-        body: 'Generation feeds the house and exports the surplus. Lowest cost, no backup during an outage.',
+        body: 'Generation feeds the house and exports the surplus to the KSEB grid. Lowest cost, no backup during an outage.',
       },
-      { name: 'Hybrid', body: 'Grid-connected with battery storage. Bill savings plus backup.' },
+      { name: 'Hybrid', body: 'Grid-connected to KSEB with battery storage. Bill savings plus backup.' },
       {
         name: 'Off-grid',
-        body: "Fully independent generation and storage, for sites the grid doesn't reach or can't be relied on.",
+        body: "Fully independent generation and storage, for sites the KSEB grid doesn't reach or can't be relied on.",
       },
     ],
     image: {
@@ -382,7 +482,7 @@ export const products = {
   },
   inverters: {
     h2: 'Solar inverters',
-    lead: 'Dealer for Solaire, INVT, Sofar, Deye and UTL.',
+    lead: 'Dealer for Solaire, INVT, Sofar, Deye and UTL, plus REX inverters — our own brand, alongside the REX battery range.',
     body: "The inverter is the part of a grid-connected system that does the translating. Panels generate DC; your house and your appliances run on AC. Converting one to the other is the inverter's primary job, and it's the component that most often decides whether a system performs to its specification.",
     table: {
       caption: 'Comparison of string, micro and hybrid solar inverters',
@@ -423,19 +523,28 @@ export const products = {
   },
   batteries: {
     h2: 'Lithium and tubular batteries',
-    lead: 'REX — our own brand, available in both lithium and lead-acid.',
+    lead: 'REX — our own brand, available in both lithium and lead-acid, and also behind our inverter range (see /products#inverters).',
     figure: { value: '84', unit: 'months', caption: 'Warranty on REX batteries' },
     body: 'Until around 2014 most storage was deep-cycle lead-acid. Lithium-ion has taken over since, and for good reasons: lighter, scalable, more efficient, longer life. The market now runs from large rack-mounted modular systems for off-grid sites down to compact portable units. We supply both chemistries because both still have a place — lead-acid remains the sensible choice on some budgets and some duty cycles.',
     whyHeading: 'Why households actually buy storage',
     whyBody:
       "For most people the deciding factor isn't the economics. It's the feel-good factor, or backup power in an emergency — and in our view self-sufficiency and energy security are perfectly good reasons on their own.",
-    image: {
-      webp: batteryLifepo4Webp,
-      png: batteryLifepo4Png,
-      width: 780,
-      height: 870,
-      alt: 'A floor-standing lithium iron phosphate solar battery cabinet with its charge display showing a full state of charge.',
-    },
+    images: [
+      {
+        webp: batteryRexLithiumWebp,
+        png: batteryRexLithiumPng,
+        width: 709,
+        height: 512,
+        alt: 'REX lithium battery, a black rectangular unit branded Royal Eye Excellence.',
+      },
+      {
+        webp: batteryTubularWebp,
+        png: batteryTubularPng,
+        width: 658,
+        height: 526,
+        alt: 'Royal Eye tubular battery, a green-cased 12V lead-acid unit.',
+      },
+    ],
     doesHeading: 'What a battery does',
     does: [
       'Raises the energy independence of your solar system',
@@ -466,34 +575,18 @@ export const products = {
       },
     ],
     closing: 'Twenty categories, one purchase order, one delivery, one point of accountability.',
-    images: [
-      {
-        webp: dcdbEnclosureWebp,
-        png: dcdbEnclosurePng,
-        width: 900,
-        height: 631,
-        alt: 'DC distribution box with breakers and surge protection.',
-      },
-      {
-        webp: mountingClampsWebp,
-        png: mountingClampsPng,
-        width: 800,
-        height: 790,
-        alt: 'Aluminium mid-clamps and end-clamps for panel mounting.',
-      },
-      {
-        webp: dcCableCoilWebp,
-        png: dcCableCoilPng,
-        width: 800,
-        height: 494,
-        alt: 'Coil of green solar DC cable.',
-      },
-    ],
+    headerImage: {
+      webp: materialsCollageWebp,
+      png: materialsCollagePng,
+      width: 1272,
+      height: 1101,
+      alt: 'A DC distribution box, a coil of green solar cable, and a set of aluminium mounting clamps.',
+    },
   },
   cta: {
     h2: 'Not sure what your roof needs?',
-    sub: "That's the normal starting point. A site visit and a written quotation cost nothing.",
-    primary: { label: 'Call now', href: 'tel:+917034022604' } as Cta,
+    sub: "That's the normal starting point. A site visit and a written quotation cost nothing. Government support may be available under India's rooftop solar programme, subject to eligibility — ask us during the visit.",
+    primary: { label: 'Call now', href: 'tel:+919539533852' } as Cta,
     secondary: { label: 'Request a quote', href: '/contact#quote' } as Cta,
   },
 } as const;
@@ -504,11 +597,12 @@ export const contact = {
   header: {
     eyebrow: 'CONTACT',
     h1: "Call us. It's the fastest way to a straight answer.",
-    sub: 'Four lines, six locations and a team that quotes from the roof rather than from a catalogue.',
+    sub: 'One direct line, four office numbers, six locations — and a team that quotes from the roof rather than from a catalogue.',
   },
   call: {
     h2: 'Phone',
     intro: 'Weekdays and Saturdays. If a line is busy, try the next one — they reach the same team.',
+    officeHeading: 'Office',
   },
   channels: {
     heading: 'Other channels',
@@ -571,10 +665,172 @@ export const contact = {
     },
     success: {
       heading: "Got it, we'll call you.",
-      body: 'Your enquiry is with the team. Expect a call on the number you gave us, usually the same working day. In a hurry? Call 70340 22604.',
+      body: 'Your enquiry is with the team. Expect a call on the number you gave us, usually the same working day. In a hurry? Call 95395 33852.',
     },
-    failure: "That didn't send. Call 70340 22604 or WhatsApp us and we'll pick it up straight away.",
+    failure: "That didn't send. Call 95395 33852 or WhatsApp us and we'll pick it up straight away.",
     privacy: 'Your number is used to respond to this enquiry. Nothing else.',
+  },
+} as const;
+
+/* ---------- 4. Projects ---------- */
+
+export interface Project {
+  index: string;
+  capacityKw: number;
+  title: string;
+  site: string;
+  services: string;
+}
+
+export const projects = {
+  header: {
+    eyebrow: 'PROJECTS',
+    h1: 'Completed installations across Kerala.',
+    sub: 'A selection of finished work across homes, businesses and institutions — capacity, location and what we delivered on each one. Real sites, not renders.',
+  },
+  stats: [
+    { value: 250, unit: 'kW', label: 'Largest system shown here' },
+    { value: 5, unit: '', label: 'Installations shown here' },
+  ],
+  photoStatus:
+    'Photos below are confirmed for project 05. The rest ship as text-only cards until a photo is confirmed for each — see the project README.',
+  /** Four supplied photos not tied to a specific named project — shown as general work, not attributed. */
+  gallery: [
+    {
+      webp: galleryOneWebp,
+      webpSmall: galleryOneSmallWebp,
+      jpg: galleryOneJpg,
+      width: 1000,
+      height: 750,
+      alt: 'A completed rooftop solar installation with panels mounted above a water tank, surrounded by coconut palms.',
+    },
+    {
+      webp: galleryTwoWebp,
+      webpSmall: galleryTwoSmallWebp,
+      jpg: galleryTwoJpg,
+      width: 1000,
+      height: 750,
+      alt: 'Solar panels installed on a rooftop, framed by coconut palms.',
+    },
+    {
+      webp: galleryThreeWebp,
+      webpSmall: galleryThreeSmallWebp,
+      jpg: galleryThreeJpg,
+      width: 1400,
+      height: 884,
+      alt: 'A rooftop solar array on a red tiled roof, framed by coconut palms under a blue sky with clouds.',
+    },
+    {
+      webp: galleryFourWebp,
+      webpSmall: galleryFourSmallWebp,
+      jpg: galleryFourJpg,
+      width: 1400,
+      height: 432,
+      alt: 'A wide view of a rooftop solar array on a red tiled roof, with coconut palms in the background.',
+    },
+  ],
+  /** Confirmed photos for project 05 (250 kW, Sreevalsam, Guruvayur Temple Devaswam). */
+  featured: {
+    projectIndex: '05',
+    caption: 'Project 05 — Sreevalsam, Guruvayur Temple Devaswam, from racking to completed array.',
+    images: [
+      {
+        webp: project5FrameWebp,
+        webpSmall: project5FrameSmallWebp,
+        jpg: project5FrameJpg,
+        width: 1400,
+        height: 662,
+        alt: 'Steel mounting racking under installation on red-tiled roofs at the Guruvayur Temple Devaswam site, ahead of the panels going up.',
+      },
+      {
+        webp: project5AerialOneWebp,
+        webpSmall: project5AerialOneSmallWebp,
+        jpg: project5AerialOneJpg,
+        width: 1400,
+        height: 662,
+        alt: 'Aerial view of the completed rooftop solar array on red-tiled roofs at the Guruvayur Temple Devaswam site.',
+      },
+      {
+        webp: project5AerialTwoWebp,
+        webpSmall: project5AerialTwoSmallWebp,
+        jpg: project5AerialTwoJpg,
+        width: 1400,
+        height: 662,
+        alt: 'A second aerial view of the completed solar array on red-tiled roofs at the Guruvayur Temple Devaswam site.',
+      },
+    ],
+  },
+  items: [
+    {
+      index: '01',
+      capacityKw: 20,
+      title: '20 kW on-grid solar system',
+      site: 'Kresupasanam, Kalavoor, Alappuzha',
+      services: 'Design, supply, installation, commissioning',
+    },
+    {
+      index: '02',
+      capacityKw: 10,
+      title: '10 kW on-grid solar system',
+      site: 'St. Rithas Church, Chittilappally',
+      services: 'Design, supply, installation, commissioning',
+    },
+    {
+      index: '03',
+      capacityKw: 45,
+      title: '45 kW on-grid solar system',
+      site: 'Chiyang Restaurant, Kakkanad, Ernakulam',
+      services: 'Design, supply, installation, commissioning',
+    },
+    {
+      index: '04',
+      capacityKw: 60,
+      title: '60 kW on-grid solar system',
+      site: 'Ideal Ladies Hostel, Kalamassery',
+      services: 'Design, supply, installation, commissioning',
+    },
+    {
+      index: '05',
+      capacityKw: 250,
+      title: '250 kW on-grid solar system',
+      site: 'Sreevalsam, Guruvayur Temple Devaswam',
+      services: 'Design, supply, installation (sub work)',
+    },
+  ] satisfies Project[] as Project[],
+  cta: {
+    h2: 'Want results like these on your roof?',
+    sub: 'Site visit and quotation at no cost.',
+    primary: { label: 'Call now', href: 'tel:+919539533852' } as Cta,
+    secondary: { label: 'WhatsApp for quotation', href: whatsapp.href } as Cta,
+  },
+} as const;
+
+/* ---------- 6. Team ---------- */
+
+/**
+ * Template only — no real names, roles or photos have been supplied yet.
+ * `members` stays empty until the client sends real team information. Do not
+ * populate it with placeholder people.
+ */
+export interface TeamMember {
+  name: string;
+  role: string;
+  note: string;
+  photo?: { src: string; width: number; height: number; alt: string };
+}
+
+export const team = {
+  header: {
+    eyebrow: 'TEAM',
+    h1: 'The people behind the install.',
+    sub: 'Team profiles are being added here. In the meantime, every enquiry reaches the same people who design and install your system — call or WhatsApp to talk to someone directly.',
+  },
+  members: [] satisfies TeamMember[] as TeamMember[],
+  cta: {
+    h2: 'Want to talk to the team now?',
+    sub: 'No need to wait for the full team page — every number below reaches someone who can answer.',
+    primary: { label: 'Call now', href: 'tel:+919539533852' } as Cta,
+    secondary: { label: 'WhatsApp us', href: whatsapp.href } as Cta,
   },
 } as const;
 
@@ -586,27 +842,43 @@ export const routeMeta = {
   '/': {
     title: 'Royal Eye Solar Power — Solar panels, inverters and batteries in Kerala',
     description:
-      'End-to-end solar since 2000. Panels, inverters, batteries and installation across Thrissur, Vadakara, Calicut, Kottayam, Pathanamthitta and Trivandrum. Call 70340 22604.',
+      'End-to-end solar since 2000. Panels, inverters, batteries and installation across Thrissur, Vadakara, Calicut, Kottayam, Pathanamthitta and Trivandrum. Call 95395 33852.',
   },
   '/products': {
     title: 'Products — Solar panels, inverters, batteries, installation materials | Royal Eye Solar',
     description:
-      "Vikram, Adani, ReNew, Goldi and UTL panels. Solaire, INVT, Sofar, Deye and UTL inverters. REX lithium and tubular batteries with 84-month warranty, plus the full installation inventory.",
+      'Adani, Waaree, Vikram, ReNew, Goldi, Emvee, Avaada and UTL panels — DCR and Non-DCR. Solaire, INVT, Sofar, Deye, UTL and REX inverters. REX lithium and tubular batteries with 84-month warranty, plus the full installation inventory.',
+  },
+  '/projects': {
+    title: 'Projects — Completed solar installations | Royal Eye Solar Power',
+    description:
+      '20 kW to 250 kW completed installations across Alappuzha, Ernakulam, Kalamassery and Guruvayur, Kerala. Design, supply, installation and commissioning.',
+  },
+  '/team': {
+    title: 'Team — Royal Eye Solar Power',
+    description:
+      "Meet the people behind Royal Eye Solar Power's installs across Kerala. Team profiles are being added — call 95395 33852 to talk to someone directly.",
   },
   '/contact': {
     title: 'Contact — Royal Eye Solar Power, Thrissur',
     description:
-      'Call 70340 22604. Head office at Manoharan Building, Edamuttam, Near SBI, Thrissur 680568. Branches in Vadakara, Calicut, Kottayam, Pathanamthitta and Trivandrum.',
+      'Call 95395 33852. Head office at Manoharan Building, Edamuttam, Near SBI, Thrissur 680568. Branches in Vadakara, Calicut, Kottayam, Pathanamthitta and Trivandrum.',
   },
 } as const;
 
 export const ogImage = './images/og-image.jpg';
 
 /**
- * Endpoint the /contact quote form POSTs to. Replace the form id below with the
- * one from your Formspree dashboard — it is the only value this site needs.
+ * The /contact quote form sends via EmailJS (client-side, no backend). Create a
+ * service + template at emailjs.com, then replace these three values — they're
+ * the only config this site needs. The template should read: name, phone, city,
+ * system_type, message.
  */
-export const formEndpoint = 'https://formspree.io/f/REPLACE_WITH_FORM_ID';
+export const emailConfig = {
+  serviceId: 'REPLACE_WITH_SERVICE_ID',
+  templateId: 'REPLACE_WITH_TEMPLATE_ID',
+  publicKey: 'REPLACE_WITH_PUBLIC_KEY',
+} as const;
 
 export const jsonLd = {
   '@context': 'https://schema.org',
@@ -614,7 +886,7 @@ export const jsonLd = {
   additionalType: 'https://www.wikidata.org/wiki/Q17048507',
   name: 'Royal Eye Solar Power',
   foundingDate: '2000',
-  telephone: ['+917034022604', '+917034022606', '+917034022602', '+919846822578'],
+  telephone: ['+919539533852', '+917034022604', '+919846653834', '+917034022602', '+919846822678'],
   email: contactDetails.email,
   url: `https://${contactDetails.website}`,
   address: {
@@ -624,6 +896,11 @@ export const jsonLd = {
     addressRegion: 'Kerala',
     postalCode: '680568',
     addressCountry: 'IN',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: headOffice.coordinates.lat,
+    longitude: headOffice.coordinates.lng,
   },
   areaServed: ['Kerala', 'Thrissur', 'Vadakara', 'Calicut', 'Kottayam', 'Pathanamthitta', 'Trivandrum'],
   makesOffer: [
@@ -641,10 +918,10 @@ export const jsonLd = {
 
 export const notFound = {
   h1: "That page isn't here.",
-  sub: 'It may have moved. The products and contact pages are below, or call 70340 22604.',
+  sub: 'It may have moved. The products and contact pages are below, or call 95395 33852.',
   buttons: [
     { label: 'Home', href: '/' },
     { label: 'Products', href: '/products' },
-    { label: 'Call now', href: 'tel:+917034022604' },
+    { label: 'Call now', href: 'tel:+919539533852' },
   ] satisfies Cta[],
 } as const;

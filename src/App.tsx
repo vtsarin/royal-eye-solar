@@ -3,12 +3,15 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import { AnimatePresence, MotionConfig, motion } from 'framer-motion';
 import { Nav } from './components/Nav';
 import { Footer } from './components/Footer';
+import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { jsonLd } from './lib/content';
 import { getLenis, initLenis, pageTransition } from './lib/motion';
 import { injectJsonLd } from './lib/seo';
 
 const Home = lazy(() => import('./routes/Home'));
 const Products = lazy(() => import('./routes/Products'));
+const Projects = lazy(() => import('./routes/Projects'));
+const Team = lazy(() => import('./routes/Team'));
 const Contact = lazy(() => import('./routes/Contact'));
 const NotFound = lazy(() => import('./routes/NotFound'));
 
@@ -67,6 +70,22 @@ export default function App() {
                 }
               />
               <Route
+                path="/projects"
+                element={
+                  <PageTransition>
+                    <Projects />
+                  </PageTransition>
+                }
+              />
+              <Route
+                path="/team"
+                element={
+                  <PageTransition>
+                    <Team />
+                  </PageTransition>
+                }
+              />
+              <Route
                 path="/contact"
                 element={
                   <PageTransition>
@@ -87,6 +106,7 @@ export default function App() {
         </AnimatePresence>
       </main>
       <Footer />
+      <FloatingWhatsApp />
     </MotionConfig>
   );
 }

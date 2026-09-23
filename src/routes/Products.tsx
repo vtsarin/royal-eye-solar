@@ -72,6 +72,33 @@ export default function Products() {
               <p className="measure mt-7 text-body-lg text-fg-secondary">{panels.lead}</p>
             </Reveal>
 
+            <Reveal delay={0.06}>
+              <h3 className="eyebrow mt-14">{panels.dcr.heading}</h3>
+              <p className="measure mt-5 text-body text-fg-secondary">{panels.dcr.body}</p>
+              <div className="mt-8 grid gap-8 border-t border-line-subtle pt-8 sm:grid-cols-2">
+                <div>
+                  <h4 className="font-mono text-caption uppercase tracking-[0.14em] text-amber-400">DCR</h4>
+                  <ul className="mt-4">
+                    {panels.dcr.dcrBrands.map((brand) => (
+                      <li key={brand} className="border-b border-line-subtle py-2.5 text-body text-fg-secondary">
+                        {brand}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-mono text-caption uppercase tracking-[0.14em] text-fg-muted">Non-DCR</h4>
+                  <ul className="mt-4">
+                    {panels.dcr.nonDcrBrands.map((brand) => (
+                      <li key={brand} className="border-b border-line-subtle py-2.5 text-body text-fg-secondary">
+                        {brand}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </Reveal>
+
             <Reveal delay={0.08}>
               <h3 className="eyebrow mt-14">{panels.techHeading}</h3>
               <dl className="mt-6 border-t border-line-subtle">
@@ -236,20 +263,24 @@ export default function Products() {
           </div>
 
           <div className="flex flex-col gap-14">
-            <Reveal>
-              <picture>
-                <source type="image/webp" srcSet={batteries.image.webp} />
-                <img
-                  src={batteries.image.png}
-                  alt={batteries.image.alt}
-                  width={batteries.image.width}
-                  height={batteries.image.height}
-                  loading="lazy"
-                  decoding="async"
-                  className="mx-auto h-auto w-full max-w-[340px]"
-                />
-              </picture>
-            </Reveal>
+            <RevealGroup className="grid grid-cols-2 gap-6" stagger={0.08}>
+              {batteries.images.map((image) => (
+                <RevealItem key={image.webp}>
+                  <picture>
+                    <source type="image/webp" srcSet={image.webp} />
+                    <img
+                      src={image.png}
+                      alt={image.alt}
+                      width={image.width}
+                      height={image.height}
+                      loading="lazy"
+                      decoding="async"
+                      className="mx-auto h-auto w-full max-w-[220px]"
+                    />
+                  </picture>
+                </RevealItem>
+              ))}
+            </RevealGroup>
 
             <Reveal delay={0.08}>
               <h3 className="eyebrow">{batteries.doesHeading}</h3>
@@ -269,12 +300,28 @@ export default function Products() {
       <section id="materials" className="grid-field scroll-mt-36 border-t border-line-subtle bg-ink-900/30 py-24 md:py-28">
         <div className="shell">
           <div className="grid gap-12 lg:grid-cols-[5fr_7fr] lg:gap-16">
-            <Reveal>
-              <h2 className="text-display-lg">{materials.h2}</h2>
+            <Reveal className="lg:order-1">
+              <picture>
+                <source srcSet={materials.headerImage.webp} type="image/webp" />
+                <img
+                  src={materials.headerImage.png}
+                  alt={materials.headerImage.alt}
+                  width={materials.headerImage.width}
+                  height={materials.headerImage.height}
+                  loading="lazy"
+                  decoding="async"
+                  className="mx-auto h-auto w-full max-w-[420px]"
+                />
+              </picture>
             </Reveal>
-            <Reveal delay={0.08}>
-              <p className="measure text-body-lg text-fg-secondary">{materials.lead}</p>
-            </Reveal>
+            <div className="lg:order-2">
+              <Reveal>
+                <h2 className="text-display-lg">{materials.h2}</h2>
+              </Reveal>
+              <Reveal delay={0.08}>
+                <p className="measure mt-7 text-body-lg text-fg-secondary">{materials.lead}</p>
+              </Reveal>
+            </div>
           </div>
 
           <RevealGroup className="mt-16 grid gap-x-10 gap-y-12 border-t border-line-strong pt-10 sm:grid-cols-2 lg:grid-cols-4" stagger={0.06}>
@@ -295,25 +342,6 @@ export default function Products() {
           <Reveal delay={0.1}>
             <p className="mt-14 max-w-[46ch] font-display text-display-md text-fg-primary">{materials.closing}</p>
           </Reveal>
-
-          <RevealGroup className="mt-16 grid gap-8 sm:grid-cols-3" stagger={0.07}>
-            {materials.images.map((image) => (
-              <RevealItem key={image.webp}>
-                <picture>
-                  <source srcSet={image.webp} type="image/webp" />
-                  <img
-                    src={image.png}
-                    alt={image.alt}
-                    width={image.width}
-                    height={image.height}
-                    loading="lazy"
-                    decoding="async"
-                    className="h-auto w-full"
-                  />
-                </picture>
-              </RevealItem>
-            ))}
-          </RevealGroup>
         </div>
       </section>
 

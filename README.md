@@ -2,7 +2,8 @@
 
 Static marketing site for Royal Eye Solar Power, Thrissur. Vite + React 18 +
 TypeScript + Tailwind + Framer Motion. Three routes (`/`, `/products`,
-`/contact`) plus a 404. No backend.
+`/contact`) plus a 404 today; `CONTENT.md` now also specifies a fourth route,
+`/projects`, not yet built — see "v2 content update" below.
 
 ## Local development
 
@@ -28,8 +29,11 @@ export const formEndpoint = 'https://formspree.io/f/REPLACE_WITH_FORM_ID';
 
 That is the endpoint the `/contact` quote form POSTs to as
 `multipart/form-data`. Built against Formspree; anything that accepts a form
-POST and returns 2xx works. Until it is replaced, the form still validates but
-every submission lands on the failure state.
+POST and returns 2xx works.
+
+**This is still the literal placeholder as of this update — the contact form
+does not currently send anywhere and always shows the failure state.** See
+"Known issues" below.
 
 The site origin used for `canonical` and `og:*` URLs is hardcoded as
 `https://royaleyesolar.com` in the same file (`siteUrl`).
@@ -53,7 +57,7 @@ src/
   routes/      one file per route, lazy-loaded
   sections/    one file per homepage section, in page order
   components/  Nav Footer CtaBand Reveal Marquee StatNumber
-               BranchMap BifacialToggle QuoteForm
+               BranchMap PhotoFilmstrip QuoteForm
   hero/        the animated hero — SunPathHero plus its parts
   lib/         content.ts  motion.ts  seo.ts  useMedia.ts  useCssVar.ts
   assets/svg/  SVGs imported as React components via vite-plugin-svgr
@@ -85,8 +89,7 @@ show their final values.
 
 Below 768px the hero becomes a top band with the copy on solid ink beneath it,
 uses two panel rows instead of four, drops the ray sweep and energy pulses, and
-uses the shorter headline from `CONTENT.md` §2.1. This is deliberate: on a 320px
-screen there is no way to keep type off the lit sky and still hold 4.5:1.
+uses the shorter headline from `CONTENT.md` §2.1.
 
 ## Swapping images
 
@@ -100,37 +103,189 @@ Photographs and cutouts live in `public/images/`, referenced from
 Keep `width`/`height` accurate — they reserve layout space and are what holds
 CLS down. Everything renders through `<picture>` with WebP first.
 
-## Outstanding client asks
+---
 
-1. **A vector logo.** `public/brand/logo-royaleye-light.png` is an 847px raster
-   lifted from a Canva export. It holds at nav and footer size but will soften
-   on any larger treatment or in print.
-2. **Real product photography for the inverter and battery sections.** Those two
-   sections on `/products` currently use **AI-generated illustrative renders**,
-   background-removed to transparent cutouts
-   (`public/images/inverter-wall-unit.*`, `public/images/battery-lifepo4.*`;
-   originals kept in `royal-eye-assets/images/*-source.png`). They carry generic
-   labels — "SOLAR INVERTER", "SOLAR BATTERY / LITHIUM IRON PHOSPHATE" — so they
-   do not impersonate a brand, but they are **not photographs of hardware Royal
-   Eye actually supplies**. Replace them with real shots of the REX battery and a
-   stocked inverter when the client provides them. The brochure's own battery
-   shot could not be used: it pictures a competitor's Century Lithium Pro unit.
+## v2 content update
+
+`CONTENT.md` and the site were updated against several new sources: a client
+WhatsApp broadcast of panel brands, a consultant's content-strategy brief,
+five real completed-project records with photos, an older single-file
+website built from the same source material, and the original
+`Royal_Eye_Brochure.pdf` company profile. None of that source material was
+pasted in directly — it's rewritten into the site's existing voice, the same
+way the original brochure prose was rewritten rather than lifted.
+
+### Implemented
+
+- **Phone number restructure.** **95395 33852** is now the primary
+  direct-enquiry/WhatsApp number, used by the nav CTA, hero, CTA band, every
+  "Call now" button, the floating WhatsApp button and `jsonLd.telephone`
+  (listed first). Four office numbers sit behind it — **98466 53834**
+  replaces 70340 22606, and 98468 22578 is corrected to **98468 22678** — shown
+  as a secondary tier on `/contact` (`directPhone` + `officePhones` in
+  `content.ts`) and in the footer.
+- **Founding year kept at 2000 / "25 years"** across the trust strip, hero and
+  About, despite a public listing showing 2018 — client confirmed 2000 is
+  correct. Noted here for the record.
+- **New panel brands** — Waaree, Emvee, Avaada — added to the marquee,
+  `/products#panels` and the footer dealer line, alongside a DCR/Non-DCR
+  breakdown with specific brand×technology pairings
+  (`products.panels.dcr` in `content.ts`). UTL is confirmed still valid for
+  panels (the original brochure explicitly lists it as a panel dealer brand,
+  cross-checked against the newer WhatsApp list that omitted it) — kept in
+  the panels lead line.
+- **Recognition / trust signals** — an MNRE rooftop-solar vendor directory
+  listing and a Justdial rating (4.3/5, 15 ratings), added as a footer
+  bottom-bar line, attributed as third-party. Deliberately **not** added to
+  the `LocalBusiness` JSON-LD as `aggregateRating` — that field asserts the
+  rating as verified first-party data, which this isn't.
+- **KSEB named explicitly** in the on-grid/hybrid/off-grid configuration
+  descriptions on `/products#panels`, replacing the generic "the grid."
+- **Government subsidy mention**, kept deliberately generic ("government
+  support may be available... subject to eligibility") on the `/products` CTA
+  — no specific scheme name or figure, since none was confirmed.
+- **`/projects` route built** — five real, documented installations (20 kW to
+  250 kW). Three supplied photos (bare racking + two completed aerial angles)
+  are confirmed as **Project 5** (250 kW, Sreevalsam, Guruvayur Temple
+  Devaswam) and shown as a `PhotoFilmstrip`
+  (`src/assets/images/projects/project-5-{frame,aerial-1,aerial-2}.*`). Two
+  more supplied photos aren't tied to any specific project (client
+  instruction) and render as general, unattributed work photography near the
+  top of the page (`gallery-1.*`, `gallery-2.*`). Projects 1–4 remain
+  text-only until a photo is confirmed for each.
+- **`/team` route built as a template.** No real names, roles or photos exist
+  yet, so it ships as an honest "profiles coming soon" page with a call/
+  WhatsApp CTA, not invented people (`team.members` is an empty, typed array
+  in `content.ts`, ready for real entries). Linked from both the main nav and
+  the footer.
+- **REX confirmed to cover both batteries and inverters** (client instruction)
+  — `/products#inverters` and the product pillar now credit REX alongside the
+  dealer brands, and the batteries lead line cross-references the inverter
+  range.
+- **"How it works" section added** to the homepage (`HowItWorks.tsx`, between
+  Coverage and the CTA band) — a four-step numbered list (site discussion →
+  system design → installation → direct support), same treatment as Benefits.
+- **Persistent floating WhatsApp button** (`FloatingWhatsApp.tsx`), mounted
+  once in `App.tsx` so it's on every route. Ghost-styled (no fill) since the
+  nav's amber "Call now" pill is already persistent — this avoids ever having
+  two amber fills on screen at once.
+- **"Institutions" named as an explicit audience** — three of the five
+  showcased projects are a church, a temple and a hostel, so the footer blurb,
+  the voice guidance in `CONTENT.md` §0 and the `/projects` sub-line now say
+  "homes, businesses and institutions" instead of just "homes and businesses."
+- **Component-lifetime nuance added** to the Benefits "almost nothing to
+  maintain" item: the inverter typically needs replacing sooner than the
+  panels.
+- **Brochure PDF wired up.** The actual file was located (client had it in a
+  separate `royal_eye_site` project on their Desktop) and copied to
+  `public/brochure.pdf`. Linked from the footer's Company column as "Download
+  brochure," opening in a new tab.
+- **Real battery product photography.** Extracted and background-removed
+  from the brochure PDF (`src/assets/images/battery/`) — the REX lithium unit
+  and the Royal Eye tubular unit are genuine product photos, replacing the
+  AI-generated placeholder cutout everywhere it was used (`/products#batteries`
+  now shows both side by side; the homepage battery product-pillar card shows
+  the REX lithium shot). This resolves outstanding client ask #2 below **for
+  batteries** — the inverter section still uses an AI-generated placeholder
+  (see "Still open" below for why it wasn't swapped).
+- **Fixed stale `index.html` meta tags.** The pre-hydration `<title>`/
+  description (what search crawlers and social scrapers see before JS runs)
+  still had the old phone number; corrected to match the live route metadata.
+
+### Still open
+
+1. **Battery warranty figure may need splitting by chemistry.** The
+   brochure's product photo of the Royal Eye tubular (lead-acid) battery shows
+   a **"5 YEARS"** warranty badge on the unit itself, but the site states a
+   blanket **84 months** ("Warranty on REX batteries") without distinguishing
+   chemistry. If 84 months is lithium-specific and tubular/lead-acid is
+   actually 60 months, the current copy overstates the lead-acid warranty.
+   Left unchanged pending client confirmation — this is a load-bearing, exact
+   figure per the original content rules, not something to guess at.
+2. **Inverter section still uses the AI-generated placeholder.** The brochure
+   has real photos of UTL, Solaire and INVT inverter units, but all three are
+   third-party dealer brands, not Royal Eye's own — swapping in one specific
+   brand's photo would implicitly favour it over the other four the company
+   sells (Solaire/INVT/Sofar/Deye/UTL), the same problem that got the original
+   competitor battery photo excluded from the asset pack. Left as-is; flag if
+   the client wants a specific brand featured, or can supply a neutral
+   installer/wiring shot instead.
+3. **REX logo file format.** Supplied as a flat JPEG with a baked-in pure
+   black background (not the site's `ink.950`, `#05070F`), so it'll show a
+   faint rectangle if placed directly on the dark ground
+   (`src/assets/brand/rex-logo.jpg`). Ask for a transparent PNG/SVG if one
+   exists; not yet placed anywhere on the site.
+4. **Lithium battery spec table not transcribed.** The brochure has a
+   model-by-model technical spec table (voltage, capacity, dimensions) for the
+   REX lithium range, but the source image is too low-resolution to read
+   reliably — transcribing it risks silently inventing numbers. Worth adding
+   if the client can supply a clean version of that table.
+5. **Inverter-specific benefit tags not added.** The brochure has a
+   "Benefits of solar inverter" callout (Safety, Cost Savings, Energy
+   Conversion, Monitoring and data) that isn't reflected anywhere on
+   `/products#inverters`. Not requested, but a plausible small addition if
+   wanted.
+6. **Alternate taglines supplied, not adopted.** "Make your roof work for
+   you" and "Powering homes. Building trust." were both offered as headline
+   directions across the source material. Both are more generic than the
+   current H1 and `PROMPT.md` explicitly rules out generic headings, so the
+   existing H1 was kept.
+7. **Feature ideas noted, not built:** a solar calculator / instant-estimate
+   tool, and a dedicated "KSEB assistance" section (net-metering paperwork,
+   subsidy application help). Both need scope from the client before they're
+   anything more than a heading.
+
+## Known issues
+
+- **Contact form needs real EmailJS credentials.** The form now sends via
+  `@emailjs/browser` (client-side, no backend) instead of the old Formspree
+  `fetch` call — see `emailConfig` in `content.ts`. `serviceId`, `templateId`
+  and `publicKey` are still the literal `REPLACE_WITH_...` placeholders; the
+  code detects this and throws before attempting to send, so every
+  submission currently hits the failure state. Create an EmailJS account, an
+  email service and a template (reading `name`, `phone`, `city`,
+  `system_type`, `message`) and drop the three real values in. Note the
+  public key is visible in client-side code by design of this approach — low
+  risk for a quote form, but worth knowing.
+- **The bifacial toggle described in `PROMPT.md` §5.5 and `CONTENT.md` §2.5
+  was never built** — deliberately replaced with the `PhotoFilmstrip` gallery
+  at commit `16de35e`. **Decision: keep the photo filmstrip**, no further
+  action.
+- **Google Maps iframe added to `/contact`, a scoped exception to
+  `PROMPT.md`'s "no Google Maps iframe" rule.** That rule was written about
+  the homepage Coverage section, which keeps its custom SVG map unchanged —
+  this is a different job (turn-by-turn directions to the actual office)
+  that the SVG map was never meant to do. One visual trade-off worth knowing:
+  the no-API-key embed URL (`google.com/maps?...&output=embed`) doesn't
+  support custom/dark map styling, so it renders as a light-mode Google Maps
+  panel inside an otherwise dark page. If that clash bothers you, options are
+  a static, styled map image (needs a Maps Static API key + billing) or
+  dropping the inline map and keeping just the "Get directions" link.
+
+## Outstanding client asks (from the original asset pack)
+
+1. **A vector logo.** `public/brand/logo-royaleye-light.png` is an 847px
+   raster lifted from a Canva export. Still outstanding.
+2. **Real product photography — resolved for batteries, still open for
+   inverters.** The battery section now uses real REX lithium and Royal Eye
+   tubular product photos, extracted and background-removed from the
+   brochure (`src/assets/images/battery/`). The inverter section still uses
+   an AI-generated illustrative render (`public/images/inverter-wall-unit.*`)
+   — see "Still open" #2 in the v2 update above for why a brochure photo
+   wasn't substituted directly.
 3. **A regenerated OG card.** `public/images/og-image.jpg` was typeset in
-   Poppins because Sora was unavailable when the asset pack was built. Worth
-   regenerating in Sora to match the site.
-4. **Confirm "twenty" in the materials copy.** The supplied `CONTENT.md` listed
-   twenty installation-material line items but described them as "nineteen" in
-   two places (the product pillar on the homepage and the closing line on
-   `/products`). Both now read "twenty" to match the list. Worth confirming with
-   the client whether the count or the list was wrong.
+   Poppins, not Sora. Still outstanding.
 
 ## Notes
 
-- `SOLAR POWER` under the logo is live type (Inter 500, uppercase, `0.24em`), not
-  part of the logo image.
+- `SOLAR POWER` under the logo is live type (Inter 500, uppercase, `0.24em`),
+  not part of the logo image.
 - The Kerala map is a stylised hand digitisation, fine as a design element and
-  inappropriate as navigation — hence the "Map is indicative" footnote. There is
-  deliberately no Google Maps embed.
+  inappropriate as navigation — hence the "Map is indicative" footnote. There
+  is deliberately no Google Maps embed.
 - Two figures are load-bearing and exact: the bifacial gain is **5–30%,
   depending on installation conditions**, and the REX battery warranty is
   **84 months**. Don't round or merge them.
+- As of this update, the site's primary phone CTA is **95395 33852** (direct
+  enquiry / WhatsApp), not 70340 22604 — check any external material (ads,
+  business cards, prior screenshots) for consistency before this goes live.

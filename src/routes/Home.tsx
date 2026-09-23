@@ -6,6 +6,7 @@ import { WhyRoyalEye } from '../sections/WhyRoyalEye';
 import { Benefits } from '../sections/Benefits';
 import { BrandMarquee } from '../sections/BrandMarquee';
 import { Coverage } from '../sections/Coverage';
+import { HowItWorks } from '../sections/HowItWorks';
 import { CtaBand } from '../components/CtaBand';
 import { routeMeta } from '../lib/content';
 import { useSeo } from '../lib/seo';
@@ -23,6 +24,7 @@ export default function Home() {
       <Benefits />
       <BrandMarquee />
       <Coverage />
+      <HowItWorks />
       <CtaBand />
     </>
   );
