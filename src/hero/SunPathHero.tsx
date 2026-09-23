@@ -124,7 +124,7 @@ export function SunPathHero() {
             ))}
           </g>
 
-          {!isMobile && <EnergyPulses />}
+          <EnergyPulses pulses={!isMobile} />
         </g>
       </svg>
 

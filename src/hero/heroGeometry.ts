@@ -58,13 +58,17 @@ export function rowPanelOffsets(count: number): number[] {
   return Array.from({ length: count }, (_, i) => start + i * (PANEL.w + PANEL.gap));
 }
 
-export const INVERTER = { x: 1392, y: 700, w: 84, h: 116 } as const;
+export const INVERTER = { x: 1392, y: 670, w: 84, h: 116 } as const;
 
-/** Wire runs from the array's DC side across to the inverter. */
+/**
+ * Wire runs from the array's DC side across to the inverter. Kept clear of
+ * the y=900-940 band that the mobile viewBox's slice-crop can trim on
+ * shorter/wider phone aspect ratios.
+ */
 export const WIRES: string[] = [
-  'M 1232 906 C 1322 906, 1362 852, 1392 802',
-  'M 1222 842 C 1312 842, 1356 812, 1392 776',
-  'M 1204 800 C 1300 796, 1350 770, 1392 752',
+  'M 1232 876 C 1322 876, 1362 822, 1392 772',
+  'M 1222 812 C 1312 812, 1356 782, 1392 746',
+  'M 1204 770 C 1300 766, 1350 740, 1392 722',
 ];
 
-export const OUTPUT_WIRE = 'M 1434 816 C 1434 872, 1452 892, 1520 896';
+export const OUTPUT_WIRE = 'M 1434 786 C 1434 842, 1452 862, 1520 866';

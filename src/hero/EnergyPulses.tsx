@@ -2,12 +2,18 @@ import { INVERTER, OUTPUT_WIRE, WIRES } from './heroGeometry';
 
 const DOTS_PER_WIRE = 3;
 
+interface Props {
+  /** Animated amber dots along the wires. Off on mobile — wires and the inverter stay. */
+  pulses?: boolean;
+}
+
 /**
- * Amber pulses running the DC wires into the inverter. Driven by CSS
- * offset-path, deliberately outside the rAF loop; negative delays start each
- * dot pre-offset so they never march in lockstep.
+ * The DC wires and inverter graphic are the "power/connection" half of the
+ * array; the amber pulses running along them are a separate, optional layer
+ * driven by CSS offset-path, deliberately outside the rAF loop. Negative
+ * delays start each dot pre-offset so they never march in lockstep.
  */
-export function EnergyPulses() {
+export function EnergyPulses({ pulses = true }: Props) {
   return (
     <g aria-hidden="true">
       <g fill="none" stroke="#2A3A9E" strokeWidth="2" opacity="0.5">
@@ -17,29 +23,30 @@ export function EnergyPulses() {
         <path d={OUTPUT_WIRE} stroke="#8FD14F" opacity="0.4" />
       </g>
 
-      {WIRES.map((d, wireIndex) =>
-        Array.from({ length: DOTS_PER_WIRE }, (_, dotIndex) => {
-          const duration = 2.4 + wireIndex * 0.45;
-          const delay = -(duration / DOTS_PER_WIRE) * dotIndex - wireIndex * 0.31;
-          return (
-            <circle
-              key={`${wireIndex}-${dotIndex}`}
-              className="pulse-dot"
-              cx={0}
-              cy={0}
-              r={wireIndex === 0 ? 5 : 4}
-              fill="#FFB020"
-              style={
-                {
-                  '--wire': `path('${d}')`,
-                  '--pulse-duration': `${duration}s`,
-                  '--pulse-delay': `${delay}s`,
-                } as React.CSSProperties
-              }
-            />
-          );
-        }),
-      )}
+      {pulses &&
+        WIRES.map((d, wireIndex) =>
+          Array.from({ length: DOTS_PER_WIRE }, (_, dotIndex) => {
+            const duration = 2.4 + wireIndex * 0.45;
+            const delay = -(duration / DOTS_PER_WIRE) * dotIndex - wireIndex * 0.31;
+            return (
+              <circle
+                key={`${wireIndex}-${dotIndex}`}
+                className="pulse-dot"
+                cx={0}
+                cy={0}
+                r={wireIndex === 0 ? 5 : 4}
+                fill="#FFB020"
+                style={
+                  {
+                    '--wire': `path('${d}')`,
+                    '--pulse-duration': `${duration}s`,
+                    '--pulse-delay': `${delay}s`,
+                  } as React.CSSProperties
+                }
+              />
+            );
+          }),
+        )}
 
       <g transform={`translate(${INVERTER.x} ${INVERTER.y})`}>
         <rect

@@ -51,9 +51,11 @@ export function Footer() {
 
         <div>
           <h2 className="eyebrow mb-5">{footer.reachHeading}</h2>
-          <ul className="flex flex-col gap-1.5">
+          <ul className="flex flex-col">
             {phones.map((phone) => (
-              <li key={phone.href}>
+              /* Negative margin overlaps the tap targets' own empty padding rather than
+                 shrinking them below the 44px minimum PROMPT.md requires for phone links. */
+              <li key={phone.href} className="-my-2">
                 <a
                   href={phone.href}
                   className="inline-flex min-h-[44px] items-center font-mono text-body text-fg-primary transition-colors hover:text-amber-300"

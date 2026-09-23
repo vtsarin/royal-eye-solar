@@ -42,11 +42,7 @@ export default function Projects() {
 
       <section className="py-24 md:py-28">
         <div className="shell">
-          <Reveal>
-            <p className="measure text-caption text-fg-muted">{projects.photoStatus}</p>
-          </Reveal>
-
-          <RevealGroup className="mt-12 border-t border-line-subtle" stagger={0.07}>
+          <RevealGroup className="border-t border-line-subtle" stagger={0.07}>
             {projects.items.map((project) => (
               <RevealItem key={project.index}>
                 <div className="grid gap-4 border-b border-line-subtle py-10 md:grid-cols-[auto_5fr_7fr] md:items-baseline md:gap-10">

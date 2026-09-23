@@ -55,11 +55,12 @@ export function Nav() {
   }, [open]);
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-300 ease-snap ${
-        scrolled ? 'border-b border-line-subtle bg-ink-900/85 backdrop-blur-xl' : 'border-b border-transparent'
-      }`}
-    >
+    <>
+      <header
+        className={`fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-300 ease-snap ${
+          scrolled ? 'border-b border-line-subtle bg-ink-900/85 backdrop-blur-xl' : 'border-b border-transparent'
+        }`}
+      >
       <div className="shell flex h-20 items-center justify-between gap-6">
         <Link to="/" className="flex shrink-0 flex-col gap-1" aria-label={`${brand.name} — home`}>
           <img src={brand.logo} alt={brand.name} width={150} height={33} className="h-[26px] w-auto md:h-[30px]" />
@@ -99,6 +100,7 @@ export function Nav() {
           <Menu strokeWidth={1.5} size={20} aria-hidden="true" />
         </button>
       </div>
+      </header>
 
       <AnimatePresence>
         {open && (
@@ -159,6 +161,6 @@ export function Nav() {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 }

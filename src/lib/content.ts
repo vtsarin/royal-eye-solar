@@ -692,8 +692,6 @@ export const projects = {
     { value: 250, unit: 'kW', label: 'Largest system shown here' },
     { value: 5, unit: '', label: 'Installations shown here' },
   ],
-  photoStatus:
-    'Photos below are confirmed for project 05. The rest ship as text-only cards until a photo is confirmed for each — see the project README.',
   /** Four supplied photos not tied to a specific named project — shown as general work, not attributed. */
   gallery: [
     {

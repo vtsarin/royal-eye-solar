@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useReducedMotion } from 'framer-motion';
+import { useIsMobile } from '../lib/useMedia';
 
 export interface FilmstripImage {
   webp: string;
@@ -27,6 +28,7 @@ export function PhotoFilmstrip({ images, dwell = 5000 }: Props) {
   const [inView, setInView] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const reduced = useReducedMotion();
+  const isMobile = useIsMobile();
   const running = inView && !held && !reduced;
 
   useEffect(() => {
@@ -42,6 +44,45 @@ export function PhotoFilmstrip({ images, dwell = 5000 }: Props) {
     const id = window.setInterval(() => setActive((i) => (i + 1) % images.length), dwell);
     return () => window.clearInterval(id);
   }, [running, dwell, images.length]);
+
+  /**
+   * Mobile is a swipeable strip, not a stack — the active frame (timer, tap,
+   * keyboard) scrolls into view. Skips the initial mount: the strip may be
+   * far down the page and not yet visible, and `block: 'nearest'` would drag
+   * the whole page down to it before the reader has scrolled anywhere near it.
+   */
+  const mounted = useRef(false);
+  useEffect(() => {
+    if (!isMobile) return;
+    if (!mounted.current) {
+      mounted.current = true;
+      return;
+    }
+    const frame = ref.current?.querySelectorAll<HTMLButtonElement>('.frame')[active];
+    frame?.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+  }, [active, isMobile]);
+
+  /** A manual swipe moves the scroll position without setting `active` — keep the index/dwell UI honest. */
+  useEffect(() => {
+    if (!isMobile) return;
+    const container = ref.current;
+    if (!container) return;
+    const frames = Array.from(container.querySelectorAll<HTMLButtonElement>('.frame'));
+    const io = new IntersectionObserver(
+      (entries) => {
+        const mostVisible = entries.reduce<IntersectionObserverEntry | null>(
+          (best, entry) => (entry.intersectionRatio > (best?.intersectionRatio ?? 0.6) ? entry : best),
+          null,
+        );
+        if (!mostVisible) return;
+        const index = frames.indexOf(mostVisible.target as HTMLButtonElement);
+        if (index !== -1) setActive(index);
+      },
+      { root: container, threshold: [0.6] },
+    );
+    frames.forEach((frame) => io.observe(frame));
+    return () => io.disconnect();
+  }, [isMobile, images.length]);
 
   const onKeyDown = useCallback(
     (event: React.KeyboardEvent) => {

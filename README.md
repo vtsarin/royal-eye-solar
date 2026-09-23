@@ -237,6 +237,53 @@ way the original brochure prose was rewritten rather than lifted.
 
 ## Known issues
 
+- **Fixed: mobile nav menu went transparent after scrolling.** `Nav.tsx`'s
+  full-screen mobile menu (`role="dialog"`) was rendered as a child of
+  `<header>`. Once scrolled past 80px, `<header>` gets `backdrop-blur-xl`
+  (`backdrop-filter`) — and per the CSS spec, `filter`/`backdrop-filter` on an
+  element makes it the containing block for its `position: fixed`
+  descendants. So the menu's `fixed inset-0` was resolving against the
+  80px-tall header box instead of the viewport, collapsing its height to
+  80px and leaving everything below that unpainted — real page content
+  showed through under the nav links. Fixed by moving the `AnimatePresence`/
+  menu panel to be a sibling of `<header>` instead of a child, wrapped in a
+  fragment. Verified on a production build (`vite preview`) with iPhone
+  viewport emulation, scrolled + menu open, before and after.
+- **Fixed: hero's wires, inverter and "power" graphic were entirely missing
+  on mobile.** `SunPathHero.tsx` gated all of `EnergyPulses` behind
+  `!isMobile`, but that component bundles three separate things — the static
+  DC wire paths, the inverter box graphic, and the animated amber pulse dots.
+  The intent (per the mobile behavior described above) was only to drop the
+  pulse animation; the wires and inverter should have stayed. `EnergyPulses`
+  now takes a `pulses` prop so the wires/inverter always render and only the
+  dot animation is desktop-only. Also nudged `WIRES`/`INVERTER`/`OUTPUT_WIRE`
+  in `heroGeometry.ts` up by 30 units — they sat close enough to the bottom
+  edge of `VIEWBOX_MOBILE` that the mobile `<svg>`'s `xMidYMid slice` crop
+  could trim them on some phone aspect ratios.
+- **Fixed: `PhotoFilmstrip` wasn't a carousel at all on mobile.** Below
+  768px `.filmstrip` had no media query, so it just stacked every image
+  full-width in a vertical column with a barely-visible fade — no swipe, no
+  motion. `/projects`' 7-image gallery made this obvious. It's now a real
+  horizontal scroll-snap carousel below 768px (`flex-direction: row`,
+  `scroll-snap-type: x mandatory`, one frame at a time with a peek of the
+  next); the desktop "expanding frame" layout is unchanged. `PhotoFilmstrip.tsx`
+  syncs `active` to whichever frame is actually swiped into view (via an
+  `IntersectionObserver` scoped to the strip itself) and scrolls the active
+  frame into view on tap/keyboard/auto-advance — skipping that scroll on the
+  very first mount, since a filmstrip further down the page isn't visible
+  yet and `block: 'nearest'` would otherwise drag the whole page down to it
+  on load.
+- **Fixed: an internal status note was rendering as live copy on
+  `/projects`.** `projects.photoStatus` in `content.ts` ("Photos below are
+  confirmed for project 05...") was never in `CONTENT.md` — it was a
+  dev-facing tracking note that got wired into `Projects.tsx` instead of
+  staying in this README, where the equivalent note already correctly lives
+  (see "Projects 1–4 remain text-only..." above). Removed from both files.
+- **Tightened footer phone list spacing.** Each `tel:` link keeps its
+  44px-minimum tap target (`PROMPT.md`'s tap-target rule), but the `<li>`s
+  now overlap into that target's own empty padding via a negative margin
+  instead of leaving the full 50px pitch between rows — the numbers read as
+  a list again, not a spaced-out stack.
 - **Contact form needs real EmailJS credentials.** The form now sends via
   `@emailjs/browser` (client-side, no backend) instead of the old Formspree
   `fetch` call — see `emailConfig` in `content.ts`. `serviceId`, `templateId`
