@@ -512,8 +512,9 @@ directly true of them (see stats).
 Sits between the stats row and the project list, contained to the normal
 `.shell` width (not full-bleed) — a `PhotoFilmstrip`, same carousel component
 used for the Project 05 gallery and the homepage's Why Royal Eye section,
-holding ten supplied photos not tied to any specific named project (client
-instruction). Not attributed to a project or a location in the alt text.
+holding five supplied photos not tied to any specific named project (client
+instruction, trimmed down from ten — too many frames in one carousel).
+Not attributed to a project or a location in the alt text.
 
 ### Project list
 
@@ -521,14 +522,13 @@ instruction). Not attributed to a project or a location in the alt text.
 Guruvayur Temple Devaswam — an aerial shot of the completed array) anchors a
 second `PhotoFilmstrip` below the list, titled as a general "work across
 Kerala" gallery rather than attributed to that one project. It's followed by
-twelve site photos from other installations across Kerala (Naripatta, Vaikom,
-Azhikode, Alathur, Thiruvananthapuram, Koodathumpoyil, Pathirippatta,
-Ernakulam, Puthenchira, Podikkundu, Athavanad, Parakkadavu) — supplied
-straight from the field camera app, so each one carries its own baked-in
-location/GPS timestamp overlay (kept as-is, client instruction, rather than
-cropped out). The ten unattributed photos in "General work gallery" above are
-a separate set. Projects 1–4 remain text-only until a photo is confirmed for
-each.
+four site photos from other installations across Kerala — Thiruvananthapuram,
+Koodathumpoyil, Ernakulam and Podikkundu, picked for geographic spread
+(south, north, central Kerala) out of twelve supplied — supplied straight from
+the field camera app, so each one carries its own baked-in location/GPS
+timestamp overlay (kept as-is, client instruction, rather than cropped out).
+The five unattributed photos in "General work gallery" above are a separate
+set. Projects 1–4 remain text-only until a photo is confirmed for each.
 
 **Project 1 — 20 kW on-grid solar system**
 Kresupasanam, Kalavoor, Alappuzha

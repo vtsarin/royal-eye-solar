@@ -28,27 +28,12 @@ import materialsCollagePng from '../assets/images/materials-collage.png';
 import galleryOneWebp from '../assets/images/projects/gallery-1.webp';
 import galleryOneSmallWebp from '../assets/images/projects/gallery-1-900.webp';
 import galleryOneJpg from '../assets/images/projects/gallery-1.jpg';
-import galleryTwoWebp from '../assets/images/projects/gallery-2.webp';
-import galleryTwoSmallWebp from '../assets/images/projects/gallery-2-900.webp';
-import galleryTwoJpg from '../assets/images/projects/gallery-2.jpg';
 import galleryThreeWebp from '../assets/images/projects/gallery-3.webp';
 import galleryThreeSmallWebp from '../assets/images/projects/gallery-3-900.webp';
 import galleryThreeJpg from '../assets/images/projects/gallery-3.jpg';
-import galleryFourWebp from '../assets/images/projects/gallery-4.webp';
-import galleryFourSmallWebp from '../assets/images/projects/gallery-4-900.webp';
-import galleryFourJpg from '../assets/images/projects/gallery-4.jpg';
-import galleryFiveWebp from '../assets/images/projects/gallery-5.webp';
-import galleryFiveSmallWebp from '../assets/images/projects/gallery-5-900.webp';
-import galleryFiveJpg from '../assets/images/projects/gallery-5.jpg';
-import gallerySixWebp from '../assets/images/projects/gallery-6.webp';
-import gallerySixSmallWebp from '../assets/images/projects/gallery-6-900.webp';
-import gallerySixJpg from '../assets/images/projects/gallery-6.jpg';
 import gallerySevenWebp from '../assets/images/projects/gallery-7.webp';
 import gallerySevenSmallWebp from '../assets/images/projects/gallery-7-900.webp';
 import gallerySevenJpg from '../assets/images/projects/gallery-7.jpg';
-import galleryEightWebp from '../assets/images/projects/gallery-8.webp';
-import galleryEightSmallWebp from '../assets/images/projects/gallery-8-900.webp';
-import galleryEightJpg from '../assets/images/projects/gallery-8.jpg';
 import galleryNineWebp from '../assets/images/projects/gallery-9.webp';
 import galleryNineSmallWebp from '../assets/images/projects/gallery-9-900.webp';
 import galleryNineJpg from '../assets/images/projects/gallery-9.jpg';
@@ -58,42 +43,18 @@ import galleryTenJpg from '../assets/images/projects/gallery-10.jpg';
 import project5AerialOneWebp from '../assets/images/projects/project-5-aerial-1.webp';
 import project5AerialOneSmallWebp from '../assets/images/projects/project-5-aerial-1-900.webp';
 import project5AerialOneJpg from '../assets/images/projects/project-5-aerial-1.jpg';
-import workNaripattaWebp from '../assets/images/projects/work-naripatta.webp';
-import workNaripattaSmallWebp from '../assets/images/projects/work-naripatta-900.webp';
-import workNaripattaJpg from '../assets/images/projects/work-naripatta.jpg';
-import workVaikomWebp from '../assets/images/projects/work-vaikom.webp';
-import workVaikomSmallWebp from '../assets/images/projects/work-vaikom-900.webp';
-import workVaikomJpg from '../assets/images/projects/work-vaikom.jpg';
-import workAzhikodeWebp from '../assets/images/projects/work-azhikode.webp';
-import workAzhikodeSmallWebp from '../assets/images/projects/work-azhikode-900.webp';
-import workAzhikodeJpg from '../assets/images/projects/work-azhikode.jpg';
-import workAlathurWebp from '../assets/images/projects/work-alathur.webp';
-import workAlathurSmallWebp from '../assets/images/projects/work-alathur-900.webp';
-import workAlathurJpg from '../assets/images/projects/work-alathur.jpg';
 import workThiruvananthapuramWebp from '../assets/images/projects/work-thiruvananthapuram.webp';
 import workThiruvananthapuramSmallWebp from '../assets/images/projects/work-thiruvananthapuram-900.webp';
 import workThiruvananthapuramJpg from '../assets/images/projects/work-thiruvananthapuram.jpg';
 import workKoodathumpoyilWebp from '../assets/images/projects/work-koodathumpoyil.webp';
 import workKoodathumpoyilSmallWebp from '../assets/images/projects/work-koodathumpoyil-900.webp';
 import workKoodathumpoyilJpg from '../assets/images/projects/work-koodathumpoyil.jpg';
-import workPathirippattaWebp from '../assets/images/projects/work-pathirippatta.webp';
-import workPathirippattaSmallWebp from '../assets/images/projects/work-pathirippatta-900.webp';
-import workPathirippattaJpg from '../assets/images/projects/work-pathirippatta.jpg';
 import workErnakulamWebp from '../assets/images/projects/work-ernakulam.webp';
 import workErnakulamSmallWebp from '../assets/images/projects/work-ernakulam-900.webp';
 import workErnakulamJpg from '../assets/images/projects/work-ernakulam.jpg';
-import workPuthenchiraWebp from '../assets/images/projects/work-puthenchira.webp';
-import workPuthenchiraSmallWebp from '../assets/images/projects/work-puthenchira-900.webp';
-import workPuthenchiraJpg from '../assets/images/projects/work-puthenchira.jpg';
 import workPodikkunduWebp from '../assets/images/projects/work-podikkundu.webp';
 import workPodikkunduSmallWebp from '../assets/images/projects/work-podikkundu-900.webp';
 import workPodikkunduJpg from '../assets/images/projects/work-podikkundu.jpg';
-import workAthavanadWebp from '../assets/images/projects/work-athavanad.webp';
-import workAthavanadSmallWebp from '../assets/images/projects/work-athavanad-900.webp';
-import workAthavanadJpg from '../assets/images/projects/work-athavanad.jpg';
-import workParakkadavuWebp from '../assets/images/projects/work-parakkadavu.webp';
-import workParakkadavuSmallWebp from '../assets/images/projects/work-parakkadavu-900.webp';
-import workParakkadavuJpg from '../assets/images/projects/work-parakkadavu.jpg';
 
 export interface Phone {
   display: string;
@@ -751,14 +712,6 @@ export const projects = {
       alt: 'A completed rooftop solar installation with panels mounted above a water tank, surrounded by coconut palms.',
     },
     {
-      webp: galleryTwoWebp,
-      webpSmall: galleryTwoSmallWebp,
-      jpg: galleryTwoJpg,
-      width: 1000,
-      height: 750,
-      alt: 'Solar panels installed on a rooftop, framed by coconut palms.',
-    },
-    {
       webp: galleryThreeWebp,
       webpSmall: galleryThreeSmallWebp,
       jpg: galleryThreeJpg,
@@ -767,44 +720,12 @@ export const projects = {
       alt: 'A rooftop solar array on a red tiled roof, framed by coconut palms under a blue sky with clouds.',
     },
     {
-      webp: galleryFourWebp,
-      webpSmall: galleryFourSmallWebp,
-      jpg: galleryFourJpg,
-      width: 1400,
-      height: 432,
-      alt: 'A wide view of a rooftop solar array on a red tiled roof, with coconut palms in the background.',
-    },
-    {
-      webp: galleryFiveWebp,
-      webpSmall: galleryFiveSmallWebp,
-      jpg: galleryFiveJpg,
-      width: 1600,
-      height: 1200,
-      alt: 'Close-up view along a rooftop solar array under a hazy sky, framed by coconut palms.',
-    },
-    {
-      webp: gallerySixWebp,
-      webpSmall: gallerySixSmallWebp,
-      jpg: gallerySixJpg,
-      width: 1600,
-      height: 1200,
-      alt: 'A rooftop solar array beside a walkway with a metal safety railing, surrounded by dense greenery.',
-    },
-    {
       webp: gallerySevenWebp,
       webpSmall: gallerySevenSmallWebp,
       jpg: gallerySevenJpg,
       width: 1280,
       height: 843,
       alt: 'Installers securing panel clamps on a rooftop array, with the town skyline visible behind them.',
-    },
-    {
-      webp: galleryEightWebp,
-      webpSmall: galleryEightSmallWebp,
-      jpg: galleryEightJpg,
-      width: 1600,
-      height: 1200,
-      alt: 'A rooftop solar array under a clear blue sky, framed by coconut and areca palms.',
     },
     {
       webp: galleryNineWebp,
@@ -837,38 +758,6 @@ export const projects = {
         alt: 'Aerial view of a completed rooftop solar array on red-tiled roofs at the Guruvayur Temple Devaswam site.',
       },
       {
-        webp: workNaripattaWebp,
-        webpSmall: workNaripattaSmallWebp,
-        jpg: workNaripattaJpg,
-        width: 1600,
-        height: 1204,
-        alt: 'A completed rooftop solar array at a site in Naripatta, Kerala, with an on-image location and GPS stamp.',
-      },
-      {
-        webp: workVaikomWebp,
-        webpSmall: workVaikomSmallWebp,
-        jpg: workVaikomJpg,
-        width: 1600,
-        height: 1204,
-        alt: 'An installer fitting rooftop mounting racking at a site in Vaikom, Kerala, with an on-image location stamp.',
-      },
-      {
-        webp: workAzhikodeWebp,
-        webpSmall: workAzhikodeSmallWebp,
-        jpg: workAzhikodeJpg,
-        width: 780,
-        height: 1040,
-        alt: 'A completed rooftop solar array at a site in Azhikode, Kerala, with an on-image location and GPS stamp.',
-      },
-      {
-        webp: workAlathurWebp,
-        webpSmall: workAlathurSmallWebp,
-        jpg: workAlathurJpg,
-        width: 1600,
-        height: 1200,
-        alt: 'A completed rooftop solar array at a site in Alathur, Kerala, with an on-image location and GPS stamp.',
-      },
-      {
         webp: workThiruvananthapuramWebp,
         webpSmall: workThiruvananthapuramSmallWebp,
         jpg: workThiruvananthapuramJpg,
@@ -885,14 +774,6 @@ export const projects = {
         alt: 'A completed rooftop solar array at golden hour at a site in Koodathumpoyil, Kerala, with an on-image location and GPS stamp.',
       },
       {
-        webp: workPathirippattaWebp,
-        webpSmall: workPathirippattaSmallWebp,
-        jpg: workPathirippattaJpg,
-        width: 1600,
-        height: 1200,
-        alt: 'A raised rooftop solar array on steel stilts at a site in Pathirippatta, Kerala, with an on-image location and GPS stamp.',
-      },
-      {
         webp: workErnakulamWebp,
         webpSmall: workErnakulamSmallWebp,
         jpg: workErnakulamJpg,
@@ -901,36 +782,12 @@ export const projects = {
         alt: 'A rooftop solar array beside a red-tiled roof at a site in Ernakulam, Kerala, with an on-image location and GPS stamp.',
       },
       {
-        webp: workPuthenchiraWebp,
-        webpSmall: workPuthenchiraSmallWebp,
-        jpg: workPuthenchiraJpg,
-        width: 1024,
-        height: 768,
-        alt: 'A completed rooftop solar array under a cloudy sky at a site in Puthenchira, Kerala, with an on-image location stamp.',
-      },
-      {
         webp: workPodikkunduWebp,
         webpSmall: workPodikkunduSmallWebp,
         jpg: workPodikkunduJpg,
         width: 1500,
         height: 988,
         alt: 'A completed rooftop solar array across multiple roof sections at a site in Podikkundu, Kerala, with an on-image location and GPS stamp.',
-      },
-      {
-        webp: workAthavanadWebp,
-        webpSmall: workAthavanadSmallWebp,
-        jpg: workAthavanadJpg,
-        width: 1600,
-        height: 1200,
-        alt: 'An installer working on a raised rooftop solar array at a site in Athavanad, Kerala, with an on-image location and GPS stamp.',
-      },
-      {
-        webp: workParakkadavuWebp,
-        webpSmall: workParakkadavuSmallWebp,
-        jpg: workParakkadavuJpg,
-        width: 1600,
-        height: 1200,
-        alt: 'Installers fitting a raised rooftop solar array at a site in Parakkadavu, Kerala, with an on-image location and GPS stamp.',
       },
     ],
   },

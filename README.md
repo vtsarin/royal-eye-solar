@@ -145,22 +145,25 @@ way the original brochure prose was rewritten rather than lifted.
   support may be available... subject to eligibility") on the `/products` CTA
   — no specific scheme name or figure, since none was confirmed.
 - **`/projects` route built** — five real, documented installations (20 kW to
-  250 kW). Ten supplied photos aren't tied to any specific project (client
+  250 kW). Five supplied photos aren't tied to any specific project (client
   instruction) and render as general, unattributed work photography near the
-  top of the page (`gallery-1.*` through `gallery-10.*`). A second
-  `PhotoFilmstrip` further down is a general "work across Kerala" gallery
-  (`projects.workGallery` in `content.ts`) — one confirmed **Project 5**
-  aerial shot (250 kW, Sreevalsam, Guruvayur Temple Devaswam,
-  `project-5-aerial-1.*`) plus twelve site photos from other installations
-  (Naripatta, Vaikom, Azhikode, Alathur, Thiruvananthapuram, Koodathumpoyil,
-  Pathirippatta, Ernakulam, Puthenchira, Podikkundu, Athavanad, Parakkadavu —
-  `work-{location}.*`). These twelve are straight from the field camera app
-  and each carries its own baked-in location/GPS/timestamp overlay, kept
-  as-is rather than cropped out (client instruction) — inconsistent with the
+  top of the page (`gallery-1.*`, `-3`, `-7`, `-9`, `-10` — trimmed down from
+  ten, too many frames in one carousel). A second `PhotoFilmstrip` further
+  down is a general "work across Kerala" gallery (`projects.workGallery` in
+  `content.ts`) — one confirmed **Project 5** aerial shot (250 kW, Sreevalsam,
+  Guruvayur Temple Devaswam, `project-5-aerial-1.*`) plus four site photos
+  from other installations, picked for geographic spread out of twelve
+  supplied (Thiruvananthapuram, Koodathumpoyil, Ernakulam, Podikkundu —
+  `work-{location}.*`). These are straight from the field camera app and
+  each carries its own baked-in location/GPS/timestamp overlay, kept as-is
+  rather than cropped out (client instruction) — inconsistent with the
   clean, unwatermarked photography everywhere else on the site, flagged here
-  for the record. `project-5-frame.*` and `project-5-aerial-2.*` are now
-  unused (kept on disk, not deleted, pending confirmation). Projects 1–4
-  remain text-only until a photo is confirmed for each.
+  for the record. `gallery-2.*`, `-4`, `-5`, `-6`, `-8`,
+  `project-5-frame.*`, `project-5-aerial-2.*`, and `work-naripatta.*`,
+  `-vaikom`, `-azhikode`, `-alathur`, `-pathirippatta`, `-puthenchira`,
+  `-athavanad`, `-parakkadavu` are now unused (kept on disk, not deleted,
+  pending confirmation). Projects 1–4 remain text-only until a photo is
+  confirmed for each.
 - **`/team` route built as a template.** No real names, roles or photos exist
   yet, so it ships as an honest "profiles coming soon" page with a call/
   WhatsApp CTA, not invented people (`team.members` is an empty, typed array
