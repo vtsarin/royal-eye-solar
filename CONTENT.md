@@ -512,17 +512,23 @@ directly true of them (see stats).
 Sits between the stats row and the project list, contained to the normal
 `.shell` width (not full-bleed) — a `PhotoFilmstrip`, same carousel component
 used for the Project 05 gallery and the homepage's Why Royal Eye section,
-holding four supplied photos not tied to any specific named project (client
+holding ten supplied photos not tied to any specific named project (client
 instruction). Not attributed to a project or a location in the alt text.
 
 ### Project list
 
-**Photo status:** three of the five supplied photos are confirmed as Project 5
-(250 kW, Sreevalsam, Guruvayur Temple Devaswam) — one showing the mounting
-racking under installation, two aerial shots of the completed array — shown
-as its own `PhotoFilmstrip` below the list. The four unattributed photos
-above are the ones described in "General work gallery." Projects 1–4 remain
-text-only until a photo is confirmed for each.
+**Photo status:** one of the photos confirmed as Project 5 (250 kW, Sreevalsam,
+Guruvayur Temple Devaswam — an aerial shot of the completed array) anchors a
+second `PhotoFilmstrip` below the list, titled as a general "work across
+Kerala" gallery rather than attributed to that one project. It's followed by
+twelve site photos from other installations across Kerala (Naripatta, Vaikom,
+Azhikode, Alathur, Thiruvananthapuram, Koodathumpoyil, Pathirippatta,
+Ernakulam, Puthenchira, Podikkundu, Athavanad, Parakkadavu) — supplied
+straight from the field camera app, so each one carries its own baked-in
+location/GPS timestamp overlay (kept as-is, client instruction, rather than
+cropped out). The ten unattributed photos in "General work gallery" above are
+a separate set. Projects 1–4 remain text-only until a photo is confirmed for
+each.
 
 **Project 1 — 20 kW on-grid solar system**
 Kresupasanam, Kalavoor, Alappuzha

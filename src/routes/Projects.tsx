@@ -61,9 +61,10 @@ export default function Projects() {
           </RevealGroup>
 
           <Reveal delay={0.1} className="mt-16">
-            <p className="eyebrow">{projects.featured.caption}</p>
+            <p className="eyebrow">{projects.workGallery.eyebrow}</p>
+            <h2 className="mt-3 max-w-[28ch] text-display-md text-fg-primary">{projects.workGallery.caption}</h2>
             <div className="mt-6">
-              <PhotoFilmstrip images={projects.featured.images} />
+              <PhotoFilmstrip images={projects.workGallery.images} />
             </div>
           </Reveal>
         </div>
