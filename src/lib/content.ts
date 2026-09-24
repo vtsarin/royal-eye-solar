@@ -82,7 +82,6 @@ export const nav = {
     { label: 'Home', href: '/' },
     { label: 'Products', href: '/products' },
     { label: 'Projects', href: '/projects' },
-    { label: 'Team', href: '/team' },
     { label: 'Contact', href: '/contact' },
   ],
   cta: { label: 'Call now', href: 'tel:+919539533852' },
@@ -146,7 +145,6 @@ export const footer = {
       items: [
         { label: 'About Royal Eye', href: '/#about' },
         { label: 'Projects', href: '/projects' },
-        { label: 'Team', href: '/team' },
         { label: 'Coverage', href: '/#coverage' },
         { label: 'Contact', href: '/contact' },
         { label: 'Request a quote', href: '/contact#quote' },
@@ -836,35 +834,6 @@ export const projects = {
   },
 } as const;
 
-/* ---------- 6. Team ---------- */
-
-/**
- * Template only — no real names, roles or photos have been supplied yet.
- * `members` stays empty until the client sends real team information. Do not
- * populate it with placeholder people.
- */
-export interface TeamMember {
-  name: string;
-  role: string;
-  note: string;
-  photo?: { src: string; width: number; height: number; alt: string };
-}
-
-export const team = {
-  header: {
-    eyebrow: 'TEAM',
-    h1: 'The people behind the install.',
-    sub: 'Team profiles are being added here. In the meantime, every enquiry reaches the same people who design and install your system — call or WhatsApp to talk to someone directly.',
-  },
-  members: [] satisfies TeamMember[] as TeamMember[],
-  cta: {
-    h2: 'Want to talk to the team now?',
-    sub: 'No need to wait for the full team page — every number below reaches someone who can answer.',
-    primary: { label: 'Call now', href: 'tel:+919539533852' } as Cta,
-    secondary: { label: 'WhatsApp us', href: whatsapp.href } as Cta,
-  },
-} as const;
-
 /* ---------- 5. Metadata ---------- */
 
 export const siteUrl = 'https://royaleyesolar.com';
@@ -884,11 +853,6 @@ export const routeMeta = {
     title: 'Projects — Completed solar installations | Royal Eye Solar Power',
     description:
       '20 kW to 250 kW completed installations across Alappuzha, Ernakulam, Kalamassery and Guruvayur, Kerala. Design, supply, installation and commissioning.',
-  },
-  '/team': {
-    title: 'Team — Royal Eye Solar Power',
-    description:
-      "Meet the people behind Royal Eye Solar Power's installs across Kerala. Team profiles are being added — call 95395 33852 to talk to someone directly.",
   },
   '/contact': {
     title: 'Contact — Royal Eye Solar Power, Thrissur',

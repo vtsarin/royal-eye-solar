@@ -164,11 +164,11 @@ way the original brochure prose was rewritten rather than lifted.
   `-athavanad`, `-parakkadavu` are now unused (kept on disk, not deleted,
   pending confirmation). Projects 1–4 remain text-only until a photo is
   confirmed for each.
-- **`/team` route built as a template.** No real names, roles or photos exist
-  yet, so it ships as an honest "profiles coming soon" page with a call/
-  WhatsApp CTA, not invented people (`team.members` is an empty, typed array
-  in `content.ts`, ready for real entries). Linked from both the main nav and
-  the footer.
+- **`/team` route removed** (client instruction) — it only ever shipped as a
+  placeholder "profiles coming soon" page with no real names, roles or
+  photos, and the client decided not to keep it. Dropped the route, the
+  `Team` component, the `team` export, its nav/footer links and its
+  `routeMeta` entry from `content.ts`.
 - **REX confirmed to cover both batteries and inverters** (client instruction)
   — `/products#inverters` and the product pillar now credit REX alongside the
   dealer brands, and the batteries lead line cross-references the inverter

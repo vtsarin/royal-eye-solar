@@ -65,7 +65,6 @@ named in on-grid/hybrid copy.
 | Home | `/` |
 | Products | `/products` |
 | Projects | `/projects` |
-| Team | `/team` |
 | Contact | `/contact` |
 
 Nav CTA (amber pill, `tel:+919539533852`): **Call now**
@@ -139,7 +138,7 @@ divider above it, not folded into the bottom bar):
 Solar panels · Solar inverters · Lithium and tubular batteries · Installation materials · Solar water heaters · Street and garden lights
 
 **Column 3 — Company**
-About Royal Eye · Projects · Team · Coverage · Contact · Request a quote · Download brochure (PDF)
+About Royal Eye · Projects · Coverage · Contact · Request a quote · Download brochure (PDF)
 
 **Column 4 — Reach us**
 The direct-enquiry number, the four office numbers, the email, the head office address.
@@ -649,34 +648,7 @@ Privacy line under the form: Your number is used to respond to this enquiry. Not
 
 ---
 
-## 6. `/team`
-
-**Status: template only.** No real names, roles or photos have been supplied
-yet — everything below is structural scaffolding so the route exists and
-looks intentional, not a content gap. Do not fill in invented people. Replace
-this whole section once the client sends real team information, and remove
-this status note.
-
-### Header
-- Eyebrow: `TEAM`
-- H1: **The people behind the install.**
-- Sub: Team profiles are being added here. In the meantime, every enquiry reaches the same people who design and install your system — call or WhatsApp to talk to someone directly.
-
-### Member template
-Shape for each entry, once supplied — do not populate with placeholder people:
-- Name
-- Role
-- One-line note on what they handle (design, installation, service, sales)
-- Photo (optional; text-only entries are fine)
-
-### Placeholder-state CTA
-- H2: **Want to talk to the team now?**
-- Sub: No need to wait for the full team page — every number below reaches someone who can answer.
-- Buttons: **Call now** · **WhatsApp us**
-
----
-
-## 7. Metadata
+## 6. Metadata
 
 ### `/`
 - Title: `Royal Eye Solar Power — Solar panels, inverters and batteries in Kerala`
@@ -690,10 +662,6 @@ Shape for each entry, once supplied — do not populate with placeholder people:
 ### `/projects`
 - Title: `Projects — Completed solar installations | Royal Eye Solar Power`
 - Description: `20 kW to 250 kW completed installations across Alappuzha, Ernakulam, Kalamassery and Guruvayur, Kerala. Design, supply, installation and commissioning.`
-
-### `/team`
-- Title: `Team — Royal Eye Solar Power`
-- Description: `Meet the people behind Royal Eye Solar Power's installs across Kerala. Team profiles are being added — call 95395 33852 to talk to someone directly.`
 
 ### `/contact`
 - Title: `Contact — Royal Eye Solar Power, Thrissur`

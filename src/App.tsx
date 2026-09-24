@@ -11,7 +11,6 @@ import { injectJsonLd } from './lib/seo';
 const Home = lazy(() => import('./routes/Home'));
 const Products = lazy(() => import('./routes/Products'));
 const Projects = lazy(() => import('./routes/Projects'));
-const Team = lazy(() => import('./routes/Team'));
 const Contact = lazy(() => import('./routes/Contact'));
 const NotFound = lazy(() => import('./routes/NotFound'));
 
@@ -74,14 +73,6 @@ export default function App() {
                 element={
                   <PageTransition>
                     <Projects />
-                  </PageTransition>
-                }
-              />
-              <Route
-                path="/team"
-                element={
-                  <PageTransition>
-                    <Team />
                   </PageTransition>
                 }
               />
